@@ -1,0 +1,9 @@
+check_name,passed,detail
+seven_domain_scope,1,"['affordability_ratios', 'cost_burden', 'home_sales', 'housing_permits', 'production_targets', 'rental_trends', 'vacancy']"
+nine_county_critical_coverage,1,"{'rental_trends': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'home_sales': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'housing_permits': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'affordability_ratios': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'vacancy': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'cost_burden': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'production_targets': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097']}"
+acs_history_minimum,1,"{'06001': 4, '06013': 4, '06041': 4, '06055': 4, '06075': 4, '06081': 4, '06085': 4, '06095': 4, '06097': 4}"
+redfin_history_minimum,1,"{'06001': 66, '06013': 66, '06041': 66, '06055': 66, '06075': 66, '06081': 66, '06085': 66, '06095': 66, '06097': 66}"
+bps_history_minimum,1,"{'06001': 5, '06013': 5, '06041': 5, '06055': 5, '06075': 5, '06081': 5, '06085': 5, '06095': 5, '06097': 5}"
+natural_key_uniqueness,1,[]
+rate_value_ranges,1,[]
+source_snapshot_lineage,1,"{'observation_sources': ['CA_HCD_APR', 'CA_HCD_RHNA', 'CENSUS_ACS5_BULK', 'CENSUS_BPS', 'REDFIN_HMT'], 'snapshot_sources': ['CA_HCD_APR', 'CA_HCD_RHNA', 'CENSUS_ACS5_BULK', 'CENSUS_BPS', 'REDFIN_HMT']}"
