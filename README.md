@@ -4,102 +4,90 @@
 
 > An evidence-first economic and housing-intelligence project for understanding change across the nine-county San Francisco Bay Area.
 
-[**Open the Version 1.1 Housing Observatory →**](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing)
+[**Open Version 1.2: Housing Access & Displacement →**](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing/access)
 
 ![The Bay Outlook dashboard](assets/dashboard-screenshot.jpg)
 
-## Version 1.1 verified scale
+## Version 1.2 verified scale
 
 | Scope | Audited result |
 |---|---:|
 | Bay Area counties | 9 |
-| Housing domains | 7 |
-| Housing metrics | 29 |
-| Housing observations | 3,753 |
-| Documented source systems | 5 |
-| Immutable source snapshots in the private checkpoint | 35 |
-| Full checkpoint tests | 108/108 passed |
-| Selected public-bundle tests | 45/45 passed |
-| Independent Phase 14 publication gates | 16/16 passed |
+| Access-focused domains | 6 |
+| Measures in the access layer | 38 |
+| Access observations | 1,116 |
+| Government source systems | 8 |
+| Immutable source snapshots in the sealed checkpoint | 49 |
+| Build quality checks | 9/9 passed |
+| Private completion and publication gates | 19/19 passed |
 
-## The problem
+Version 1.2 extends—not replaces—the verified Version 1.1 Housing Observatory,
+which contains 3,753 observations across seven core housing domains.
 
-Bay Area evidence is fragmented across agencies, geographies, release schedules,
-and revision practices. A county comparison is not trustworthy unless it
-preserves what was measured, where it was measured, when it was released, and
-what evidence or context is missing.
+## What Version 1.2 adds
 
-## What Version 1.1 adds
+- limited civil unlawful-detainer filings and dispositions;
+- transparent displacement-pressure components, kept separate rather than scored;
+- HUD PIT homelessness estimates and HIC bed inventories;
+- income-targeted housing permits and sixth-cycle RHNA progress;
+- HUD-assisted housing characteristics; and
+- worker earnings compared with HUD fair-market-rent benchmarks.
 
-The Housing Observatory covers:
-
-- rental trends;
-- home sales;
-- housing permits;
-- affordability ratios;
-- vacancy;
-- renter and owner cost burden; and
-- progress toward housing-production targets.
-
-The live interface keeps government evidence separate from Redfin's documented
-private primary-market data, retains source periods beside each value, and
-exposes limitations before interpretation.
+PIT count design is attached to every county-year. The interface warns before
+showing change when a cycle is sheltered-only. The release does not produce a
+composite displacement score, rank counties, infer causation, or automate public
+narrative analysis.
 
 ```mermaid
 flowchart TD
-    A["Documented releases"] --> B["Hashed source snapshots"]
-    B --> C["Validated county observations"]
-    C --> D["SQLite housing warehouse"]
-    D --> E["Public Housing Observatory"]
+    A["Government releases"] --> B["Hashed source evidence"]
+    B --> C["County observations"]
+    C --> D["Lineage-aware warehouse"]
+    D --> E["Housing Access experience"]
     E --> F["Named-human analysis review"]
 ```
 
-## Reproduce the housing build
+## Reproduce the build
 
-The source adapter streams and hashes the complete ACS and Redfin upstream files
-before preserving exact nine-county source slices. Census Building Permits Survey
-and California HCD responses are preserved with retrieval metadata and SHA-256
-digests.
+The public adapter preserves complete court and HUD workbooks, selected ACS
+county rows with upstream file digests, and an observation-to-source join for
+multi-source calculations.
 
 ```bash
 python -m pip install -e .
 PYTHONPATH=src python -m bay_outlook.cli build-phase14
-PYTHONPATH=src python -m bay_outlook.cli verify-phase14
+PYTHONPATH=src python -m bay_outlook.cli build-phase14-access
+PYTHONPATH=src python -m bay_outlook.cli verify-phase14-access
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-The scheduled workflow creates a review candidate with read-only repository
-permission. It cannot commit, deploy, or publish narrative analysis.
+The scheduled workflow has read-only repository permission. It creates a review
+candidate and does not commit, deploy, or publish narrative analysis.
 
 ## What this public bundle contains
 
-This is a publication-safe portfolio bundle. It includes the live-source housing
-adapter, unit and artifact checks, configuration, source and indicator
-registries, methodology and limitations, the latest verified county snapshot,
-RHNA progress, and selected pre-existing economic pipeline modules.
-
-It intentionally excludes raw live snapshots, private checkpoint databases,
-internal editorial records, and the unapproved baseline-report artifact. Those
-exclusions do not weaken the live build: the documented source adapter can
-regenerate the evidence package from the upstream releases.
+This publication-safe portfolio bundle contains the live-source adapter,
+configuration, source and indicator registries, methodology, limitations, unit
+and artifact checks, and selected verified county snapshots. It intentionally
+excludes raw source files, private checkpoint databases, internal editorial
+records, and the unapproved baseline-report artifact. The source adapter can
+regenerate the evidence package from documented upstream releases.
 
 ## Evidence boundaries
 
-- ACS releases are overlapping five-year estimates, not independent annual
-  samples.
-- Redfin is a private primary-market source and may revise its history; it is not
-  presented as a government statistic.
-- A permit authorizes construction but does not establish completion or
-  occupancy.
-- RHNA progress is a descriptive ratio of reported 2023–2025 permits to
-  sixth-cycle allocations, not a forecast.
-- Affordability ratios are ratios of county medians and do not describe a
-  particular household.
+- Court cases are filings and dispositions, not executed evictions.
+- ACS releases are overlapping five-year estimates, not independent annual samples.
+- PIT is a one-night estimate; some cycles are sheltered-only.
+- HIC measures bed inventory, not occupancy, service quality, or unmet need.
+- A permit is an authorization, not proof of completion or occupancy.
+- RHNA is a planning allocation, and the current numerator covers 2023–2025.
+- HUD FMR is an area standard, not a county asking-rent median.
+- Worker earnings describe people age 16+ with earnings, not a specific household.
 
-The ten-page baseline economic analysis remains on `human_approval_hold`. New
-public narrative analysis also requires named-human editorial approval.
+The baseline economic analysis remains on `human_approval_hold`. New public
+narrative analysis also requires named-human editorial approval.
 
-[Live Housing Observatory](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing) · [Regional outlook](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site) · [Housing methodology](docs/housing-observatory/METHODOLOGY.md) · [Housing data dictionary](docs/housing-observatory/DATA_DICTIONARY.md) · [Project case study](case-study.pdf)
+[Housing Access & Displacement](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing/access) · [Housing Observatory](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing) · [Methodology](docs/housing-access/METHODOLOGY.md) · [Data dictionary](docs/housing-access/DATA_DICTIONARY.md) · [Project case study](case-study.pdf)
 
 ## Role and development approach
 

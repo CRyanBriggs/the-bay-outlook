@@ -11,6 +11,7 @@ from .constants import PROJECT_ROOT
 from .database import print_summary
 from .pipeline import persist
 from .phase14 import build_phase14, verify_phase14
+from .phase14_access import build_phase14_access, verify_phase14_access
 from .sources import acs, bea, cde, laus, qcew
 from .storage import save_snapshot
 
@@ -154,12 +155,26 @@ def command_verify_phase14(args: argparse.Namespace) -> int:
     return 0 if report["complete"] else 1
 
 
+def command_build_phase14_access(args: argparse.Namespace) -> int:
+    report = build_phase14_access(built_at=args.built_at, refresh=not args.offline)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["verification"]["complete"] else 1
+
+
+def command_verify_phase14_access(args: argparse.Namespace) -> int:
+    report = verify_phase14_access(manifest_path=Path(args.manifest))
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["complete"] else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="bay-outlook-public")
     subparsers = parser.add_subparsers(dest="command", required=True)
+
     demo = subparsers.add_parser("demo", help="Run the core pipeline with non-publishable fixtures")
     demo.add_argument("--output-dir", default="build/demo")
     demo.set_defaults(func=command_demo)
+
     housing = subparsers.add_parser(
         "build-phase14",
         help="Build the Version 1.1 Housing Observatory from documented live sources",
@@ -171,12 +186,35 @@ def build_parser() -> argparse.ArgumentParser:
         help="Rebuild the manifest from existing verified housing exports",
     )
     housing.set_defaults(func=command_build_phase14)
+
     verify_housing = subparsers.add_parser(
         "verify-phase14",
         help="Verify housing coverage, lineage, calculations, update controls, and hashes",
     )
     verify_housing.add_argument("--manifest", default="data/phase14/phase14_manifest.json")
     verify_housing.set_defaults(func=command_verify_phase14)
+
+    access = subparsers.add_parser(
+        "build-phase14-access",
+        help="Build Version 1.2 Housing Access & Displacement from documented sources",
+    )
+    access.add_argument("--built-at", help="Optional deterministic UTC retrieval/build time")
+    access.add_argument(
+        "--offline",
+        action="store_true",
+        help="Rebuild the Version 1.2 manifest from existing verified access exports",
+    )
+    access.set_defaults(func=command_build_phase14_access)
+
+    verify_access = subparsers.add_parser(
+        "verify-phase14-access",
+        help="Verify access coverage, lineage, calculations, update controls, and hashes",
+    )
+    verify_access.add_argument(
+        "--manifest",
+        default="data/phase14/access/phase14_v1_2_manifest.json",
+    )
+    verify_access.set_defaults(func=command_verify_phase14_access)
     return parser
 
 

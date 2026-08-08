@@ -1,0 +1,37 @@
+county_fips,county_name,coc_number,coc_name,period,count_type,full_sheltered_and_unsheltered_count
+06085,Santa Clara,CA-500,San Jose/Santa Clara City & County CoC,2022,Sheltered and Unsheltered Count,True
+06075,San Francisco,CA-501,San Francisco CoC,2022,Sheltered and Unsheltered Count,True
+06001,Alameda,CA-502,"Oakland, Berkeley/Alameda County CoC",2022,Sheltered and Unsheltered Count,True
+06097,Sonoma,CA-504,"Santa Rosa, Petaluma/Sonoma County CoC",2022,Sheltered and Unsheltered Count,True
+06013,Contra Costa,CA-505,Richmond/Contra Costa County CoC,2022,Sheltered and Unsheltered Count,True
+06041,Marin,CA-507,Marin County CoC,2022,Sheltered and Unsheltered Count,True
+06081,San Mateo,CA-512,Daly/San Mateo County CoC,2022,Sheltered and Unsheltered Count,True
+06055,Napa,CA-517,Napa City & County CoC,2022,Sheltered and Unsheltered Count,True
+06095,Solano,CA-518,Vallejo/Solano County CoC,2022,Sheltered and Unsheltered Count,True
+06085,Santa Clara,CA-500,San Jose/Santa Clara City & County CoC,2023,Sheltered and Unsheltered Count,True
+06075,San Francisco,CA-501,San Francisco CoC,2023,Sheltered-Only Count,False
+06001,Alameda,CA-502,"Oakland, Berkeley/Alameda County CoC",2023,Sheltered-Only Count,False
+06097,Sonoma,CA-504,"Santa Rosa, Petaluma/Sonoma County CoC",2023,Sheltered and Unsheltered Count,True
+06013,Contra Costa,CA-505,Richmond/Contra Costa County CoC,2023,Sheltered and Unsheltered Count,True
+06041,Marin,CA-507,Marin County CoC,2023,Sheltered-Only Count,False
+06081,San Mateo,CA-512,Daly/San Mateo County CoC,2023,Sheltered-Only Count,False
+06055,Napa,CA-517,Napa City & County CoC,2023,Sheltered and Unsheltered Count,True
+06095,Solano,CA-518,Vallejo/Solano County CoC,2023,Sheltered-Only Count,False
+06085,Santa Clara,CA-500,San Jose/Santa Clara City & County CoC,2024,Sheltered-Only Count,False
+06075,San Francisco,CA-501,San Francisco CoC,2024,Sheltered and Unsheltered Count,True
+06001,Alameda,CA-502,"Oakland, Berkeley/Alameda County CoC",2024,Sheltered and Unsheltered Count,True
+06097,Sonoma,CA-504,"Santa Rosa, Petaluma/Sonoma County CoC",2024,Sheltered and Unsheltered Count,True
+06013,Contra Costa,CA-505,Richmond/Contra Costa County CoC,2024,Sheltered and Unsheltered Count,True
+06041,Marin,CA-507,Marin County CoC,2024,Sheltered and Unsheltered Count,True
+06081,San Mateo,CA-512,Daly/San Mateo County CoC,2024,Sheltered and Unsheltered Count,True
+06055,Napa,CA-517,Napa City & County CoC,2024,Sheltered and Unsheltered Count,True
+06095,Solano,CA-518,Vallejo/Solano County CoC,2024,Sheltered and Unsheltered Count,True
+06085,Santa Clara,CA-500,San Jose/Santa Clara City & County CoC,2025,Sheltered and Unsheltered Count,True
+06075,San Francisco,CA-501,San Francisco CoC,2025,Sheltered-Only Count,False
+06001,Alameda,CA-502,"Oakland, Berkeley/Alameda County CoC",2025,Sheltered-Only Count,False
+06097,Sonoma,CA-504,"Santa Rosa, Petaluma/Sonoma County CoC",2025,Sheltered and Unsheltered Count,True
+06013,Contra Costa,CA-505,Richmond/Contra Costa County CoC,2025,Sheltered and Unsheltered Count,True
+06041,Marin,CA-507,Marin County CoC,2025,Sheltered-Only Count,False
+06081,San Mateo,CA-512,Daly/San Mateo County CoC,2025,Sheltered-Only Count,False
+06055,Napa,CA-517,Napa City & County CoC,2025,Sheltered and Unsheltered Count,True
+06095,Solano,CA-518,Vallejo/Solano County CoC,2025,Sheltered-Only Count,False

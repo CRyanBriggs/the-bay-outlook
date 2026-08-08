@@ -1,0 +1,10 @@
+check_name,passed,detail
+six_domain_scope,1,"['displacement_pressure', 'eviction_filings', 'homelessness', 'hud_assisted_housing', 'income_targeted_production', 'worker_housing_access']"
+nine_county_critical_coverage,1,"{'displacement_pressure': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'eviction_filings': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'homelessness': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'hud_assisted_housing': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'income_targeted_production': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097'], 'worker_housing_access': ['06001', '06013', '06041', '06055', '06075', '06081', '06085', '06095', '06097']}"
+documented_history_minimums,1,{}
+natural_key_uniqueness,1,[]
+percentage_ranges,1,[]
+complete_source_lineage,1,"{'observations': ['CA_COURTS_COURT_STATISTICS', 'CA_HCD_APR', 'CA_HCD_RHNA', 'CENSUS_ACS5_BULK', 'HUD_FMR', 'HUD_HIC', 'HUD_PICTURE', 'HUD_PIT'], 'snapshots': ['CA_COURTS_COURT_STATISTICS', 'CA_HCD_APR', 'CA_HCD_RHNA', 'CENSUS_ACS5_BULK', 'HUD_FMR', 'HUD_HIC', 'HUD_PICTURE', 'HUD_PIT']}"
+pit_count_type_disclosure,1,"{'records': 36, 'sheltered_only_2025': ['06001', '06041', '06075', '06081', '06095']}"
+transparent_pressure_components_only,1,[]
+derived_calculation_reproducibility,1,[]

@@ -1,0 +1,37 @@
+county_fips,county_name,category,category_label,permitted_2023_2025,sixth_cycle_target,progress_pct,permit_source,target_source,calculation
+06001,Alameda,vli,Very low income,3347.0,23606.0,14.178598661357283,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06001,Alameda,li,Low income,2251.0,13591.0,16.56243102052829,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06001,Alameda,mod,Moderate income,1784.0,14438.0,12.35628203352265,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06001,Alameda,above,Above moderate income,7323.0,37362.0,19.60012847277983,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06013,Contra Costa,vli,Very low income,909.0,13346.0,6.811029521954144,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06013,Contra Costa,li,Low income,1259.0,7685.0,16.3825634352635,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06013,Contra Costa,mod,Moderate income,1346.0,7807.0,17.24093762008454,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06013,Contra Costa,above,Above moderate income,4824.0,20205.0,23.875278396436524,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06041,Marin,vli,Very low income,450.0,4171.0,10.78877966914409,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06041,Marin,li,Low income,346.0,2400.0,14.416666666666666,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06041,Marin,mod,Moderate income,226.0,2182.0,10.357470210815766,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06041,Marin,above,Above moderate income,426.0,5652.0,7.537154989384288,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06055,Napa,vli,Very low income,236.0,1138.0,20.738137082601053,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06055,Napa,li,Low income,212.0,658.0,32.21884498480243,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06055,Napa,mod,Moderate income,135.0,571.0,23.642732049036777,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06055,Napa,above,Above moderate income,958.0,1477.0,64.86120514556534,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06075,San Francisco,vli,Very low income,1685.0,20867.0,8.074950879378925,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06075,San Francisco,li,Low income,1215.0,12014.0,10.113201265190611,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06075,San Francisco,mod,Moderate income,971.0,13717.0,7.078807319384706,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06075,San Francisco,above,Above moderate income,2215.0,35471.0,6.244537791435257,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06081,San Mateo,vli,Very low income,1812.0,12196.0,14.8573302722204,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06081,San Mateo,li,Low income,1939.0,7023.0,27.609283781859606,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06081,San Mateo,mod,Moderate income,917.0,7937.0,11.55348368401159,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06081,San Mateo,above,Above moderate income,4888.0,20531.0,23.807900248404852,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06085,Santa Clara,vli,Very low income,3641.0,32316.0,11.266864710979082,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06085,Santa Clara,li,Low income,3057.0,18607.0,16.429300800773902,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06085,Santa Clara,mod,Moderate income,3476.0,21926.0,15.853324819848583,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06085,Santa Clara,above,Above moderate income,10315.0,56728.0,18.1832604710196,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06095,Solano,vli,Very low income,222.0,2803.0,7.920085622547271,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06095,Solano,li,Low income,380.0,1612.0,23.573200992555833,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06095,Solano,mod,Moderate income,239.0,1832.0,13.045851528384281,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06095,Solano,above,Above moderate income,3990.0,4745.0,84.08851422550052,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06097,Sonoma,vli,Very low income,1087.0,3999.0,27.181795448862218,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06097,Sonoma,li,Low income,1097.0,2302.0,47.65421372719374,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06097,Sonoma,mod,Moderate income,465.0,2302.0,20.199826238053866,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation
+06097,Sonoma,above,Above moderate income,4657.0,5959.0,78.15069642557476,CA_HCD_APR,CA_HCD_RHNA,sum of 2023–2025 permits divided by sixth-cycle allocation

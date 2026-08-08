@@ -1,0 +1,39 @@
+domain,metric_id,metric_name,unit,history_start,interpretation
+eviction_filings,unlawful_detainer_filings,Limited civil unlawful-detainer filings,court cases,FY2013-14,Legal filings are not executed evictions
+eviction_filings,unlawful_detainer_dispositions,Limited civil unlawful-detainer dispositions,court cases,FY2013-14,Dispositions can reflect cases filed in earlier periods
+eviction_filings,renter_households,Renter-occupied households,households,2021,ACS exposure denominator
+eviction_filings,unlawful_detainer_filings_per_1000_renter_households,"Limited civil unlawful-detainer filings per 1,000 renter households","filings per 1,000 renter households",FY2021-22,Approximate rate using same-vintage ACS denominator
+displacement_pressure,renter_overcrowding_pct,Renter households with more than one occupant per room,percent,2021,Transparent pressure component
+displacement_pressure,renter_severe_overcrowding_pct,Renter households with more than 1.5 occupants per room,percent,2021,Transparent pressure component
+displacement_pressure,renter_severe_cost_burden_50_plus_pct,Renters spending at least 50% of income on rent,percent,2021,Transparent pressure component inherited from v1.1
+displacement_pressure,median_gross_rent,Median gross rent,current dollars per month,2021,Transparent pressure component inherited from v1.1
+homelessness,pit_overall_homeless,PIT overall homelessness estimate,people,2022,Read with count-type flag
+homelessness,pit_sheltered_homeless,PIT sheltered homelessness estimate,people,2022,One-night estimate
+homelessness,pit_unsheltered_homeless,PIT unsheltered homelessness estimate,people,2022,May be carried forward in a sheltered-only cycle
+homelessness,hic_emergency_transitional_safe_haven_beds,"Year-round emergency, transitional, and safe-haven beds",year-round beds,2022,Inventory not utilization
+homelessness,hic_permanent_supportive_housing_beds,Year-round permanent supportive housing beds,year-round beds,2022,Inventory not utilization
+homelessness,hic_rapid_rehousing_beds,Year-round rapid rehousing beds,year-round beds,2022,Inventory not utilization
+hud_assisted_housing,hud_assisted_units,HUD-assisted units under contract,housing units,2022,Picture of Subsidized Households program universe
+hud_assisted_housing,hud_assisted_occupancy_pct,HUD-assisted units reported occupied,percent,2022,Program administrative snapshot
+hud_assisted_housing,hud_assisted_people,People in HUD-assisted households,people,2022,Program administrative snapshot
+hud_assisted_housing,hud_assisted_household_income,Average annual income of HUD-assisted households,current dollars per year,2022,Program administrative snapshot
+hud_assisted_housing,hud_assisted_extremely_low_income_pct,HUD-assisted households below 30% of area median income,percent,2022,Program administrative snapshot
+hud_assisted_housing,hud_assisted_months_waiting,Average months on waiting list before admission,months,2022,Missing when HUD reports a negative sentinel
+income_targeted_production,hcd_apr_vli_permitted_units,HCD-reported VLI permitted units,housing units,2023,Permit authorization by income category
+income_targeted_production,hcd_apr_li_permitted_units,HCD-reported LI permitted units,housing units,2023,Permit authorization by income category
+income_targeted_production,hcd_apr_mod_permitted_units,HCD-reported MOD permitted units,housing units,2023,Permit authorization by income category
+income_targeted_production,hcd_apr_above_permitted_units,HCD-reported above-moderate permitted units,housing units,2023,Permit authorization by income category
+income_targeted_production,hcd_apr_permitted_units,HCD-reported permitted units,housing units,2023,Permit authorization across income categories
+income_targeted_production,rhna_target_vli_units,Sixth-cycle RHNA very-low-income allocation,housing units,sixth cycle,Planning allocation
+income_targeted_production,rhna_target_li_units,Sixth-cycle RHNA low-income allocation,housing units,sixth cycle,Planning allocation
+income_targeted_production,rhna_target_mod_units,Sixth-cycle RHNA moderate-income allocation,housing units,sixth cycle,Planning allocation
+income_targeted_production,rhna_target_above_mod_units,Sixth-cycle RHNA above-moderate-income allocation,housing units,sixth cycle,Planning allocation
+worker_housing_access,median_worker_earnings,Median annual earnings for people age 16+ with earnings,current dollars per year,2021,Individual not household earnings
+worker_housing_access,fmr_1br,HUD Fair Market Rent — 1-bedroom,current dollars per month,FY2026,HUD-area rent standard
+worker_housing_access,fmr_2br,HUD Fair Market Rent — 2-bedroom,current dollars per month,FY2026,HUD-area rent standard
+worker_housing_access,income_required_1br_fmr,Annual income required for 1-bedroom FMR at 30% of income,current dollars per year,FY2026,Derived affordability benchmark
+worker_housing_access,income_required_2br_fmr,Annual income required for 2-bedroom FMR at 30% of income,current dollars per year,FY2026,Derived affordability benchmark
+worker_housing_access,median_worker_earnings_coverage_1br_pct,Median worker earnings as share of income required for 1-bedroom FMR,percent,FY2026,ACS 2024 versus FY2026 FMR
+worker_housing_access,median_worker_earnings_coverage_2br_pct,Median worker earnings as share of income required for 2-bedroom FMR,percent,FY2026,ACS 2024 versus FY2026 FMR
+worker_housing_access,monthly_affordability_gap_1br,Monthly gap between 1-bedroom FMR and 30% of median worker earnings,current dollars per month,FY2026,Positive means FMR exceeds benchmark
+worker_housing_access,monthly_affordability_gap_2br,Monthly gap between 2-bedroom FMR and 30% of median worker earnings,current dollars per month,FY2026,Positive means FMR exceeds benchmark

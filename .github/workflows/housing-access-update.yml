@@ -1,0 +1,42 @@
+name: Housing Access candidate refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "19 16 8 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  human-review-required:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install project
+        run: python -m pip install -e .
+      - name: Rebuild Version 1.1 baseline evidence
+        run: python -m bay_outlook.cli build-phase14 || true
+      - name: Build Version 1.2 candidate evidence
+        run: python -m bay_outlook.cli build-phase14-access || true
+      - name: Run access unit and artifact checks
+        run: python -m unittest tests.test_phase14_access
+      - name: Report reproduction gates without deploying
+        run: python -m bay_outlook.cli verify-phase14-access || true
+      - name: Record review boundary
+        run: |
+          mkdir -p candidate-review
+          cp data/phase14/access/exports/quality_checks.csv candidate-review/ 2>/dev/null || true
+          cp data/phase14/access/exports/source_freshness.csv candidate-review/ 2>/dev/null || true
+          cp data/phase14/access/exports/pit_count_types.csv candidate-review/ 2>/dev/null || true
+          printf '%s\n' 'No public deployment is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: housing-access-candidate-review
+          path: candidate-review

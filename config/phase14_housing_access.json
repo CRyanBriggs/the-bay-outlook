@@ -1,0 +1,43 @@
+{
+  "product": "Housing Access & Displacement",
+  "version": "1.2.0",
+  "inherits": "Housing Observatory 1.1.0",
+  "counties_file": "config/counties.csv",
+  "domains": [
+    "eviction_filings",
+    "displacement_pressure",
+    "homelessness",
+    "income_targeted_production",
+    "hud_assisted_housing",
+    "worker_housing_access"
+  ],
+  "history": {
+    "court_fiscal_year_start": 2013,
+    "acs_5_year": [2021, 2022, 2023, 2024],
+    "hud_pit_hic": [2022, 2023, 2024, 2025],
+    "hud_picture": [2022, 2023, 2024, 2025],
+    "hcd_apr": [2023, 2024, 2025],
+    "hud_fmr": "FY2026 revised"
+  },
+  "design": {
+    "composite_displacement_score": false,
+    "county_ranking": false,
+    "pressure_components": [
+      "unlawful_detainer_filings",
+      "renter_severe_cost_burden_50_plus_pct",
+      "renter_overcrowding_pct",
+      "median_gross_rent"
+    ]
+  },
+  "refresh": {
+    "candidate_schedule": "monthly",
+    "automatic_public_deployment": false,
+    "human_review_required": true
+  },
+  "publication": {
+    "descriptive_data_allowed_after_verification": true,
+    "automated_narrative_allowed": false,
+    "named_human_required_for_new_analysis": true,
+    "phase10_report_status": "human_approval_hold"
+  }
+}
