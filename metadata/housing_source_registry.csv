@@ -1,0 +1,6 @@
+source_id,publisher,dataset,source_tier,source_class,frequency,geography_basis,landing_url
+CENSUS_ACS5_BULK,U.S. Census Bureau,American Community Survey 5-Year Detailed Tables,1,government,annual,household residence,https://www.census.gov/programs-surveys/acs/data.html
+CENSUS_BPS,U.S. Census Bureau,Building Permits Survey,1,government,annual final,permit-issuing location,https://www.census.gov/construction/bps/
+REDFIN_HMT,Redfin,Housing Market Tracker — Monthly County Data,2,private primary-market source,monthly,listed and sold homes represented in Redfin market data,https://www.redfin.com/news/data-center/housing-market/
+CA_HCD_APR,California Department of Housing and Community Development,Housing Element Annual Progress Report — Table A2,1,government,annual with portal updates,reporting jurisdiction and county,https://www.hcd.ca.gov/housing-open-data-tools/apr-dashboard
+CA_HCD_RHNA,California Department of Housing and Community Development,Sixth-Cycle RHNA Progress Report,1,government,periodic,housing-element jurisdiction,https://www.hcd.ca.gov/rhna

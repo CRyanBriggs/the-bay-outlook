@@ -1,0 +1,30 @@
+metric_id,indicator_id,domain,metric_name,unit,frequency,source_id,calculation
+median_gross_rent,H2,rental_trends,Median gross rent,current dollars per month,annual five-year estimate,CENSUS_ACS5_BULK,published B25064 estimate
+homes_sold,H2,home_sales,Homes sold,homes,monthly,REDFIN_HMT,published Redfin field
+median_sale_price,H2,home_sales,"Median sale price, not seasonally adjusted",current dollars,monthly,REDFIN_HMT,published Redfin field
+median_days_on_market,H2,home_sales,Median days on market,days,monthly,REDFIN_HMT,published Redfin field
+active_listings,H2,home_sales,Active listings,listings,monthly,REDFIN_HMT,published Redfin field
+months_of_supply,H2,home_sales,Months of supply,months,monthly,REDFIN_HMT,published Redfin field
+permitted_units_total,H3,housing_permits,Permitted housing units,housing units,annual final,CENSUS_BPS,sum of BPS units by structure size
+permitted_units_single_family,H3,housing_permits,Permitted units in single-family structures,housing units,annual final,CENSUS_BPS,published BPS field
+permitted_units_two_unit,H3,housing_permits,Permitted units in two-unit structures,housing units,annual final,CENSUS_BPS,published BPS field
+permitted_units_three_four_unit,H3,housing_permits,Permitted units in three- and four-unit structures,housing units,annual final,CENSUS_BPS,published BPS field
+permitted_units_five_plus,H3,housing_permits,Permitted units in structures with five or more units,housing units,annual final,CENSUS_BPS,published BPS field
+median_home_value,H2,affordability_ratios,Median owner-occupied home value,current dollars,annual five-year estimate,CENSUS_ACS5_BULK,published B25077 estimate
+median_household_income,O3,affordability_ratios,Median household income,current dollars per year,annual five-year estimate,CENSUS_ACS5_BULK,published B19013 estimate
+rent_to_income_pct,H2,affordability_ratios,Median gross rent to median household income,percent,annual five-year estimate,CENSUS_ACS5_BULK,annualized median rent divided by median household income
+home_value_to_income_ratio,H2,affordability_ratios,Median home value to median household income,ratio,annual five-year estimate,CENSUS_ACS5_BULK,median owner-reported home value divided by median household income
+vacant_housing_units,H4,vacancy,Vacant housing units,housing units,annual five-year estimate,CENSUS_ACS5_BULK,published B25002 estimate
+housing_vacancy_rate,H4,vacancy,Housing vacancy rate,percent,annual five-year estimate,CENSUS_ACS5_BULK,B25002 vacant units divided by total housing units
+renter_cost_burden_30_plus_pct,H1,cost_burden,Renters spending at least 30% of income on rent,percent,annual five-year estimate,CENSUS_ACS5_BULK,B25070 30%+ categories divided by computed cases
+renter_severe_cost_burden_50_plus_pct,H1,cost_burden,Renters spending at least 50% of income on rent,percent,annual five-year estimate,CENSUS_ACS5_BULK,B25070 50%+ category divided by computed cases
+owner_cost_burden_30_plus_pct,H1,cost_burden,Owners spending at least 30% of income on housing,percent,annual five-year estimate,CENSUS_ACS5_BULK,B25091 mortgage and nonmortgage 30%+ categories divided by computed cases
+owner_severe_cost_burden_50_plus_pct,H1,cost_burden,Owners spending at least 50% of income on housing,percent,annual five-year estimate,CENSUS_ACS5_BULK,B25091 mortgage and nonmortgage 50%+ categories divided by computed cases
+hcd_apr_permitted_units,H3,production_targets,HCD-reported permitted units,housing units,annual,CA_HCD_APR,sum of jurisdiction-reported permits within county
+hcd_apr_vli_permitted_units,H3,production_targets,HCD-reported VLI permitted units,housing units,annual,CA_HCD_APR,sum of jurisdiction-reported categories within county
+hcd_apr_li_permitted_units,H3,production_targets,HCD-reported LI permitted units,housing units,annual,CA_HCD_APR,sum of jurisdiction-reported categories within county
+hcd_apr_mod_permitted_units,H3,production_targets,HCD-reported MOD permitted units,housing units,annual,CA_HCD_APR,sum of jurisdiction-reported categories within county
+hcd_apr_above_permitted_units,H3,production_targets,HCD-reported ABOVE permitted units,housing units,annual,CA_HCD_APR,sum of jurisdiction-reported categories within county
+rhna_target_total,H3,production_targets,Sixth-cycle RHNA allocation,housing units,cycle-to-date,CA_HCD_RHNA,sum of constituent jurisdiction allocations
+rhna_permitted_cycle_to_date,H3,production_targets,Permitted units reported for 2023–2025,housing units,cycle-to-date,CA_HCD_APR,sum of 2023–2025 jurisdiction-reported permits
+rhna_progress_pct,H3,production_targets,Progress toward sixth-cycle RHNA allocation,percent,cycle-to-date,CA_HCD_APR,2023–2025 reported permits divided by sixth-cycle RHNA allocation

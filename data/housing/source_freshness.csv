@@ -1,0 +1,6 @@
+source_id,publisher,dataset,source_tier,source_class,frequency,latest_period_end,retrieved_at,snapshot_count,status,landing_url
+CENSUS_ACS5_BULK,U.S. Census Bureau,American Community Survey 5-Year Detailed Tables,1,government,annual,2024-12-31,2026-08-08T18:25:52Z,24,current for documented release cycle,https://www.census.gov/programs-surveys/acs/data.html
+CENSUS_BPS,U.S. Census Bureau,Building Permits Survey,1,government,annual final,2025-12-31,2026-08-08T18:25:52Z,5,current for documented release cycle,https://www.census.gov/construction/bps/
+REDFIN_HMT,Redfin,Housing Market Tracker — Monthly County Data,2,private primary-market source,monthly,2026-06-30,2026-08-08T18:25:52Z,1,current for documented release cycle,https://www.redfin.com/news/data-center/housing-market/
+CA_HCD_APR,California Department of Housing and Community Development,Housing Element Annual Progress Report — Table A2,1,government,annual with portal updates,2025-12-31,2026-08-08T18:25:52Z,3,current for documented release cycle,https://www.hcd.ca.gov/housing-open-data-tools/apr-dashboard
+CA_HCD_RHNA,California Department of Housing and Community Development,Sixth-Cycle RHNA Progress Report,1,government,periodic,2025-12-31,2026-08-08T18:25:52Z,2,current for documented release cycle,https://www.hcd.ca.gov/rhna

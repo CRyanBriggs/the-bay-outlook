@@ -1,0 +1,53 @@
+name: Housing Observatory candidate update
+
+on:
+  schedule:
+    - cron: "23 16 8 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bay-outlook-housing-observatory-candidate
+  cancel-in-progress: false
+
+jobs:
+  build-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out the verified public repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install the project
+        run: python -m pip install -e .
+
+      - name: Build live-source housing candidate
+        run: PYTHONPATH=src python -m bay_outlook.cli build-phase14
+
+      - name: Verify Phase 14 candidate
+        run: PYTHONPATH=src python -m bay_outlook.cli verify-phase14
+
+      - name: Run regression tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Preserve human-review-required candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-review-required-housing-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            data/phase14/exports/
+            data/phase14/public/
+            data/phase14/phase14_manifest.json
+
+      # No public deployment, commit, push, or narrative publication occurs here.
