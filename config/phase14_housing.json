@@ -1,0 +1,31 @@
+{
+  "product": "Housing Observatory",
+  "version": "1.1.0",
+  "counties_file": "config/counties.csv",
+  "domains": [
+    "rental_trends",
+    "home_sales",
+    "housing_permits",
+    "affordability_ratios",
+    "vacancy",
+    "cost_burden",
+    "production_targets"
+  ],
+  "history": {
+    "acs_5_year": [2021, 2022, 2023, 2024],
+    "building_permits_annual_final": [2021, 2022, 2023, 2024, 2025],
+    "redfin_monthly_start": "2021-01-01",
+    "hcd_apr_start": 2023
+  },
+  "refresh": {
+    "candidate_schedule": "monthly",
+    "automatic_public_deployment": false,
+    "human_review_required": true
+  },
+  "publication": {
+    "descriptive_data_allowed_after_verification": true,
+    "automated_narrative_allowed": false,
+    "named_human_required_for_new_analysis": true,
+    "phase10_report_status": "human_approval_hold"
+  }
+}
