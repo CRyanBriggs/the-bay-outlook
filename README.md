@@ -4,6 +4,8 @@
 
 > An evidence-first economic-intelligence project for understanding change across the nine-county San Francisco Bay Area.
 
+[**Open the live Bay Outlook dashboard →**](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site)
+
 ![The Bay Outlook dashboard](assets/dashboard-screenshot.jpg)
 
 ## Verified project scale
@@ -56,7 +58,7 @@ The 25 indicators are a research catalog, not 25 populated live series. The 891 
 
 The ten-page baseline analysis is technically complete but remains on human-approval hold. It is not included or represented as published.
 
-[Project case study](case-study.pdf) · [Architecture](docs/architecture.md) · [Methodology](docs/methodology.md) · [Interactive dashboard file](dashboard/index.html)
+[Live dashboard](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site) · [Project case study](case-study.pdf) · [Architecture](docs/architecture.md) · [Methodology](docs/methodology.md) · [Dashboard source](dashboard/index.html)
 
 ## Role and development approach
 
