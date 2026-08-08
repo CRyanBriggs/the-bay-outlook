@@ -24,6 +24,8 @@ data/phase9/*
 !data/phase9/.gitkeep
 data/phase11/*
 !data/phase11/.gitkeep
+data/phase14/*
+!data/phase14/.gitkeep
 data/automation/*
 !data/automation/.gitkeep
 *.sqlite
