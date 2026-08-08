@@ -1,0 +1,5 @@
+GeoFIPS,GeoName,Region,TableName,LineCode,IndustryClassification,Description,Unit,2023,2024
+" ""06001""","Alameda, CA",8,CAGDP1,1,...,Real GDP (thousands of chained 2017 dollars),Thousands of chained 2017 dollars,150000000,153000000
+" ""06001""","Alameda, CA",8,CAGDP1,2,...,Chain-type quantity indexes for real GDP,Quantity index,110.0,112.2
+" ""06013""","Contra Costa, CA",8,CAGDP1,1,...,Real GDP (thousands of chained 2017 dollars),Thousands of chained 2017 dollars,85000000,87000000
+" ""06013""","Contra Costa, CA",8,CAGDP1,2,...,Chain-type quantity indexes for real GDP,Quantity index,108.0,110.5

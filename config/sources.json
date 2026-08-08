@@ -1,0 +1,37 @@
+{
+  "BLS_LAUS": {
+    "indicator_ids": ["L1"],
+    "landing_url": "https://www.bls.gov/lau/",
+    "api_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+    "frequency": "monthly",
+    "credential_env": null
+  },
+  "BLS_QCEW": {
+    "indicator_ids": ["L2"],
+    "landing_url": "https://www.bls.gov/cew/",
+    "api_url_template": "https://data.bls.gov/cew/data/api/{year}/{quarter}/area/{county_fips}.csv",
+    "frequency": "quarterly",
+    "credential_env": null
+  },
+  "BEA_CAGDP1": {
+    "indicator_ids": ["O1"],
+    "landing_url": "https://www.bea.gov/data/gdp/gdp-county",
+    "bulk_url": "https://apps.bea.gov/regional/zip/CAGDP1.zip",
+    "frequency": "annual",
+    "credential_env": null
+  },
+  "CENSUS_ACS5": {
+    "indicator_ids": ["H1"],
+    "landing_url": "https://www.census.gov/programs-surveys/acs/data.html",
+    "api_url_template": "https://api.census.gov/data/{year}/acs/acs5",
+    "frequency": "annual",
+    "credential_env": "CENSUS_API_KEY"
+  },
+  "CDE_CGR12": {
+    "indicator_ids": ["E2"],
+    "landing_url": "https://www.cde.ca.gov/ds/ad/filescgr12.asp",
+    "release_discovery": "newest cgr12mo TXT link on the official landing page",
+    "frequency": "annual",
+    "credential_env": null
+  }
+}

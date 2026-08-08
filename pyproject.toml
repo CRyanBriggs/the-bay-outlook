@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "the-bay-outlook-public"
+version = "0.8.0"
+description = "Selected reproducible economic-intelligence modules for the nine-county San Francisco Bay Area"
+requires-python = ">=3.11"
+authors = [{name = "Ryan Briggs"}]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

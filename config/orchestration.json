@@ -1,0 +1,75 @@
+{
+  "schema_version": "6.0.0",
+  "state_database": "data/operations/bay_outlook_operations.sqlite",
+  "staging_database": "data/database/bay_outlook.sqlite",
+  "warehouse_database": "data/database/bay_outlook_analytics.sqlite",
+  "lock": {
+    "path": "data/operations/orchestration.lock",
+    "stale_after_minutes": 180
+  },
+  "retries": {
+    "max_attempts": 3,
+    "initial_delay_seconds": 2,
+    "backoff_multiplier": 2,
+    "max_delay_seconds": 30,
+    "persistent_backoff_minutes": 60,
+    "persistent_backoff_max_minutes": 1440
+  },
+  "sources": [
+    {
+      "source_id": "BLS_LAUS",
+      "enabled": true,
+      "cadence": "monthly",
+      "check_interval_days": 7,
+      "resolver": "rolling_year_window",
+      "lookback_years": 1,
+      "required_environment": [],
+      "release_reference": "https://www.bls.gov/schedule/news_release/laus.htm",
+      "policy_note": "Poll weekly around the monthly release cycle and retrieve the current and prior calendar year so revisions are captured."
+    },
+    {
+      "source_id": "BLS_QCEW",
+      "enabled": true,
+      "cadence": "quarterly",
+      "check_interval_days": 14,
+      "resolver": "lagged_quarter",
+      "release_lag_days": 160,
+      "required_environment": [],
+      "release_reference": "https://www.bls.gov/cew/release-calendar.htm",
+      "policy_note": "Use a conservative 160-day lag from quarter end, then poll biweekly for the latest safely available quarter."
+    },
+    {
+      "source_id": "BEA_CAGDP1",
+      "enabled": true,
+      "cadence": "annual",
+      "check_interval_days": 30,
+      "resolver": "current_bulk_vintage",
+      "required_environment": [],
+      "release_reference": "https://www.bea.gov/news/schedule",
+      "policy_note": "Poll the full public bulk vintage monthly; content hashing detects both annual additions and revisions."
+    },
+    {
+      "source_id": "CENSUS_ACS5",
+      "enabled": true,
+      "cadence": "annual",
+      "check_interval_days": 30,
+      "resolver": "lagged_calendar_year",
+      "release_lag_days": 380,
+      "required_environment": [
+        "CENSUS_API_KEY"
+      ],
+      "release_reference": "https://www.census.gov/programs-surveys/acs/news/data-releases.html",
+      "policy_note": "Target the latest calendar year at least 380 days past year end and block before network access when the API key is absent."
+    },
+    {
+      "source_id": "CDE_CGR12",
+      "enabled": true,
+      "cadence": "annual",
+      "check_interval_days": 30,
+      "resolver": "latest_landing_page_release",
+      "required_environment": [],
+      "release_reference": "https://www.cde.ca.gov/ds/ad/filescgr12.asp",
+      "policy_note": "Inspect the official download page monthly and follow its newest posted college-going-rate file instead of hard-coding an academic year."
+    }
+  ]
+}

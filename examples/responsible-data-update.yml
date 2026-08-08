@@ -1,0 +1,75 @@
+name: Responsible data update
+
+on:
+  schedule:
+    - cron: "17 15 * * 2"
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Optional source ID; blank checks every due source"
+        required: false
+        type: string
+      force:
+        description: "Ignore the normal polling interval"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bay-outlook-responsible-data-update
+  cancel-in-progress: false
+
+jobs:
+  responsible-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install the project
+        run: python -m pip install -e .
+
+      - name: Run the full baseline test suite
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Run the guarded Phase 11 update
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          REQUESTED_SOURCE: ${{ inputs.source }}
+          FORCE_UPDATE: ${{ inputs.force }}
+        run: |
+          args=(--trigger github-actions)
+          if [[ -n "${REQUESTED_SOURCE}" ]]; then args+=(--source "${REQUESTED_SOURCE}"); fi
+          if [[ "${FORCE_UPDATE}" == "true" ]]; then args+=(--force); fi
+          PYTHONPATH=src python -m bay_outlook.cli phase11-update "${args[@]}" | tee phase11-update-result.json
+
+      - name: Refresh and verify the Phase 11 control package
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: |
+          PYTHONPATH=src python -m bay_outlook.cli build-phase11
+          PYTHONPATH=src python -m bay_outlook.cli verify-phase11
+
+      - name: Preserve update evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bay-outlook-phase11-${{ github.run_id }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            phase11-update-result.json
+            data/phase11/
+            data/automation/review/
+            data/automation/rollbacks/
+            data/database/bay_outlook_phase11.sqlite

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Bay Outlook — a transparent economic and policy dashboard for the nine-county San Francisco Bay Area.">
+  <meta name="referrer" content="no-referrer">
+  <title>The Bay Outlook · Regional economic dashboard</title>
+  <style>
+{{DASHBOARD_STYLE}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+  <div id="dashboard-app" class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#overview" data-view-link="overview" aria-label="The Bay Outlook home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="39" cy="23" r="12"></circle>
+          <path d="M8 39c10-8 18-8 28 0s18 8 24 2"></path>
+          <path d="M8 49c10-8 18-8 28 0s18 8 24 2"></path>
+        </svg>
+        <span class="brand-copy">
+          <span class="brand-name">The Bay Outlook</span>
+          <span class="brand-tagline">Economic research for regional futures</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Dashboard sections" role="tablist">
+        <button class="nav-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="view-overview" data-view="overview">Overview</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="view-county" data-view="county">County lens</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="view-education" data-view="education">Education</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="view-health" data-view="health">Data health</button>
+      </nav>
+
+      <div class="header-stamp" aria-label="Dashboard data date">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span><span class="stamp-label">Evidence as of</span><strong id="header-as-of">—</strong></span>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <div id="fixture-alert" class="fixture-alert" role="alert" hidden>
+        Demonstration mode: this build includes fixture observations and is not publishable.
+      </div>
+
+      <section id="view-overview" class="view-panel is-active" role="tabpanel" aria-labelledby="overview-title" data-view-panel="overview">
+        <div class="hero-grid content-width">
+          <div class="hero-copy">
+            <p class="eyebrow">Nine counties · one transparent evidence base</p>
+            <h1 id="overview-title">A clearer view of the Bay Area economy.</h1>
+            <p class="hero-deck">Track what is changing, compare counties on the right basis, and see where the evidence is current—or still missing.</p>
+            <div class="hero-actions">
+              <button class="button button-primary" type="button" data-view="county">Explore a county</button>
+              <button class="button button-secondary" type="button" data-scroll-to="comparison-section">Compare indicators</button>
+            </div>
+          </div>
+          <aside class="hero-note" aria-label="How to read this dashboard">
+            <span class="note-number">01</span>
+            <p class="note-kicker">How to read the outlook</p>
+            <p>Every headline names its period and freshness. County medians are reference points—not a synthetic regional score.</p>
+            <a href="#health" data-view-link="health">Read the data contract <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+
+        <div class="pulse-band">
+          <div class="content-width pulse-inner">
+            <div>
+              <span class="pulse-label">Regional evidence pulse</span>
+              <strong id="pulse-summary">Loading current analytical signals…</strong>
+            </div>
+            <div class="pulse-meta">
+              <span><strong id="pulse-active">—</strong> active indicators</span>
+              <span><strong id="pulse-series">—</strong> latest county series</span>
+              <span><strong id="pulse-quality">—</strong> quality checks passed</span>
+            </div>
+          </div>
+        </div>
+
+        <section class="content-width section-block" aria-labelledby="headline-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Current signals</p>
+              <h2 id="headline-title">What the latest evidence says</h2>
+            </div>
+            <p class="section-context">Each card uses a reviewed comparison rule. “Current” reflects the release cadence, not a shared publication date.</p>
+          </div>
+
+          <div class="headline-grid">
+            <article class="signal-card signal-card-feature" id="card-unemployment">
+              <div class="card-topline"><span>Labor market</span><span class="freshness-badge" id="unemployment-freshness">—</span></div>
+              <p class="metric-label">Median county unemployment rate</p>
+              <p class="metric-value" id="unemployment-value">—</p>
+              <p class="metric-change" id="unemployment-change">—</p>
+              <div class="card-footer"><span id="unemployment-period">—</span><button type="button" class="text-button" data-compare-metric="unemployment_rate">Compare counties</button></div>
+            </article>
+
+            <article class="signal-card" id="card-gdp">
+              <div class="card-topline"><span>Economic output</span><span class="freshness-badge" id="gdp-freshness">—</span></div>
+              <p class="metric-label">Median county real GDP growth</p>
+              <p class="metric-value" id="gdp-value">—</p>
+              <p class="metric-change" id="gdp-change">—</p>
+              <div class="card-footer"><span id="gdp-period">—</span><button type="button" class="text-button" data-compare-metric="real_gdp">Compare growth</button></div>
+            </article>
+
+            <article class="signal-card" id="card-employment">
+              <div class="card-topline"><span>Covered employment</span><span class="freshness-badge" id="employment-freshness">—</span></div>
+              <p class="metric-label">Counties with annual growth history</p>
+              <p class="metric-value" id="employment-value">—</p>
+              <p class="metric-change" id="employment-change">—</p>
+              <div class="card-footer"><span id="employment-period">—</span><button type="button" class="text-button" data-compare-metric="average_weekly_wage">View wage context</button></div>
+            </article>
+
+            <article class="signal-card signal-card-education" id="card-education">
+              <div class="card-topline"><span>Education & mobility</span><span class="freshness-badge badge-model">Model-ready</span></div>
+              <p class="metric-label">Education indicator frameworks ready</p>
+              <p class="metric-value" id="education-value">—</p>
+              <p class="metric-change" id="education-change">—</p>
+              <div class="card-footer"><span>Coverage is not an outcome</span><button type="button" class="text-button" data-view="education">See the roadmap</button></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="comparison-section" class="section-block section-tint">
+          <div class="content-width">
+            <div class="section-heading section-heading-controls">
+              <div>
+                <p class="eyebrow">County comparison</p>
+                <h2>Compare the measure that matters</h2>
+              </div>
+              <label class="field-label" for="comparison-metric">
+                Indicator
+                <select id="comparison-metric" class="select-control"></select>
+              </label>
+            </div>
+
+            <div class="analysis-panel">
+              <div class="chart-intro">
+                <div>
+                  <h3 id="comparison-title">—</h3>
+                  <p id="comparison-subtitle">—</p>
+                </div>
+                <div class="legend-cluster" aria-label="Chart legend">
+                  <span><i class="legend-swatch swatch-county"></i> County</span>
+                  <span><i class="legend-line"></i> Median</span>
+                </div>
+              </div>
+              <div id="comparison-chart" class="chart-frame" role="img" aria-labelledby="comparison-title comparison-description"></div>
+              <p id="comparison-description" class="sr-only">County comparison chart.</p>
+              <div class="chart-callout" id="comparison-callout">—</div>
+              <details class="data-table-disclosure">
+                <summary>View comparison as a table</summary>
+                <div class="table-scroll">
+                  <table>
+                    <thead><tr><th scope="col">County</th><th scope="col">Value</th><th scope="col">Rank</th><th scope="col">Freshness</th></tr></thead>
+                    <tbody id="comparison-table-body"></tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-width section-block" aria-labelledby="coverage-title">
+          <div class="coverage-story">
+            <div>
+              <p class="eyebrow">Coverage before confidence</p>
+              <h2 id="coverage-title">A dashboard should show its blind spots.</h2>
+            </div>
+            <p>Three indicators are active today. Others are model-ready or planned, including the full education pathway. The interface keeps those gaps visible so “no data” is never mistaken for zero.</p>
+            <button class="button button-dark" type="button" data-view="health">Inspect coverage</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-county" class="view-panel" role="tabpanel" aria-labelledby="county-title" data-view-panel="county" hidden>
+        <div class="page-hero content-width">
+          <div>
+            <p class="eyebrow">County lens</p>
+            <h1 id="county-title">Follow one county across distinct economic concepts.</h1>
+            <p>Resident labor markets, establishment jobs, and production-based GDP are presented together—but never treated as interchangeable.</p>
+          </div>
+          <label class="county-picker" for="county-select">
+            Select county
+            <select id="county-select" class="select-control select-large"></select>
+          </label>
+        </div>
+
+        <div class="county-name-band">
+          <div class="content-width county-name-inner">
+            <span class="county-index" id="county-index">—</span>
+            <div><span>Selected profile</span><strong id="county-name">—</strong></div>
+            <p id="county-profile-note">Latest available measures, each labeled by period and geography basis.</p>
+          </div>
+        </div>
+
+        <section class="content-width section-block" aria-labelledby="county-snapshot-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Latest snapshot</p><h2 id="county-snapshot-title">Three lenses, one county</h2></div>
+            <p class="section-context">A stale observation remains visible, with its age attached.</p>
+          </div>
+          <div id="county-profile-grid" class="county-profile-grid"></div>
+        </section>
+
+        <section class="section-block section-tint">
+          <div class="content-width">
+            <div class="section-heading section-heading-controls">
+              <div><p class="eyebrow">History</p><h2>Trace the series</h2></div>
+              <label class="field-label" for="trend-metric">
+                Measure
+                <select id="trend-metric" class="select-control"></select>
+              </label>
+            </div>
+            <div class="analysis-panel">
+              <div class="chart-intro">
+                <div><h3 id="trend-title">—</h3><p id="trend-subtitle">—</p></div>
+                <div class="legend-cluster"><span><i class="legend-swatch swatch-line"></i> Selected county</span><span><i class="legend-line"></i> Latest median</span></div>
+              </div>
+              <div id="trend-chart" class="chart-frame chart-frame-line" role="img" aria-labelledby="trend-title trend-description"></div>
+              <p id="trend-description" class="sr-only">Time-series chart for the selected county.</p>
+              <div id="trend-callout" class="chart-callout">—</div>
+              <details class="data-table-disclosure">
+                <summary>View recent observations as a table</summary>
+                <div class="table-scroll"><table><thead><tr><th scope="col">Period</th><th scope="col">Value</th><th scope="col">Year change</th><th scope="col">Status</th></tr></thead><tbody id="trend-table-body"></tbody></table></div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-width section-block evidence-section" aria-labelledby="evidence-title">
+          <div class="section-heading"><div><p class="eyebrow">Evidence details</p><h2 id="evidence-title">Know what each county label means</h2></div></div>
+          <div id="county-evidence" class="evidence-grid"></div>
+        </section>
+      </section>
+
+      <section id="view-education" class="view-panel" role="tabpanel" aria-labelledby="education-title" data-view-panel="education" hidden>
+        <div class="education-hero">
+          <div class="content-width education-hero-inner">
+            <div>
+              <p class="eyebrow eyebrow-light">Education & economic mobility</p>
+              <h1 id="education-title">From access to outcomes—without collapsing the pathway.</h1>
+              <p>Attendance, persistence, stopout, graduation, and post-college employment answer different questions. The dashboard keeps their cohorts and denominators separate.</p>
+            </div>
+            <div class="education-status-orbit" aria-label="Education data status">
+              <span class="orbit-number" id="education-live-count">0</span>
+              <span>live education observations</span>
+              <strong id="education-status-label">Awaiting validated sources</strong>
+            </div>
+          </div>
+        </div>
+
+        <section class="content-width section-block" aria-labelledby="pathway-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Analytical pathway</p><h2 id="pathway-title">Four distinct evidence questions</h2></div>
+            <p class="section-context">Model-ready means the analytical policy exists. It does not mean facts have been collected.</p>
+          </div>
+          <div id="education-pathway" class="pathway-grid"></div>
+        </section>
+
+        <section class="section-block section-tint">
+          <div class="content-width">
+            <div class="section-heading"><div><p class="eyebrow">Metric contract</p><h2>What will be measured—and how</h2></div></div>
+            <div class="table-card table-scroll">
+              <table class="policy-table">
+                <thead><tr><th scope="col">Stage</th><th scope="col">Measure</th><th scope="col">Comparison</th><th scope="col">Guardrail</th><th scope="col">Status</th></tr></thead>
+                <tbody id="education-policy-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-width section-block">
+          <div class="definition-pair">
+            <article>
+              <span class="definition-icon" aria-hidden="true">≠</span>
+              <p class="eyebrow">Stopout is not a remainder</p>
+              <h2>Do not assume dropout equals 100 minus persistence.</h2>
+              <p>Students may transfer, remain enrolled under another status, or leave the observable system. Stopout activates only when a source defines a mutually exclusive cohort outcome.</p>
+            </article>
+            <article>
+              <span class="definition-icon" aria-hidden="true">∅</span>
+              <p class="eyebrow">No wage record is not unemployment</p>
+              <h2>Labor-force status needs its own denominator.</h2>
+              <p>Post-graduation outcomes must retain field of study, award level, cohort, time window, and geography. Missing wage matches cannot be relabeled as unemployment.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-health" class="view-panel" role="tabpanel" aria-labelledby="health-title" data-view-panel="health" hidden>
+        <div class="page-hero content-width">
+          <div>
+            <p class="eyebrow">Data health & methodology</p>
+            <h1 id="health-title">The evidence behind the interface.</h1>
+            <p>Coverage, freshness, provenance, and interpretation rules are part of the product—not footnotes hidden after the conclusion.</p>
+          </div>
+          <div class="health-seal" aria-label="Analytical quality status"><strong id="health-check-count">—</strong><span>quality checks passing</span></div>
+        </div>
+
+        <section class="content-width section-block" aria-labelledby="freshness-title">
+          <div class="section-heading"><div><p class="eyebrow">Freshness</p><h2 id="freshness-title">Latest series by evidence age</h2></div><p class="section-context">Thresholds vary by monthly, quarterly, and annual publication cadence.</p></div>
+          <div class="health-grid">
+            <article class="health-card health-card-wide">
+              <div id="freshness-chart" class="freshness-chart"></div>
+              <p id="freshness-note" class="health-note">—</p>
+            </article>
+            <article class="health-card">
+              <p class="eyebrow">Coverage state</p>
+              <div id="readiness-donut" class="donut-wrap"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-width section-block" aria-labelledby="indicator-freshness-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Release transparency</p><h2 id="indicator-freshness-title">What period does each indicator actually represent?</h2></div>
+            <p class="section-context">Publication and retrieval dates are distinct. Planned indicators remain visible without fabricated freshness.</p>
+          </div>
+          <div class="table-card table-scroll">
+            <table>
+              <thead><tr><th scope="col">Indicator</th><th scope="col">Observation period</th><th scope="col">Publication date</th><th scope="col">Retrieval date</th><th scope="col">Status</th><th scope="col">Next expected update</th></tr></thead>
+              <tbody id="indicator-freshness-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block section-tint">
+          <div class="content-width">
+            <div class="section-heading"><div><p class="eyebrow">Indicator inventory</p><h2>All 25 indicators remain visible</h2></div><p class="section-context">Active, model-ready, and planned are coverage states—not performance ratings.</p></div>
+            <div id="indicator-matrix" class="indicator-matrix"></div>
+          </div>
+        </section>
+
+        <section class="content-width section-block" aria-labelledby="source-title">
+          <div class="section-heading"><div><p class="eyebrow">Source concepts</p><h2 id="source-title">County does not always mean the same thing</h2></div></div>
+          <div class="table-card table-scroll">
+            <table>
+              <thead><tr><th scope="col">Source</th><th scope="col">Geography basis</th><th scope="col">Latest period</th><th scope="col">Latest series</th><th scope="col">Freshness</th></tr></thead>
+              <tbody id="source-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="content-width section-block methodology-section" aria-labelledby="method-title">
+          <div class="section-heading"><div><p class="eyebrow">Methodology</p><h2 id="method-title">Rules that keep the dashboard honest</h2></div></div>
+          <div class="method-grid">
+            <details open><summary>What is the county benchmark?</summary><p id="benchmark-definition">—</p></details>
+            <details><summary>How are changes matched?</summary><p>Period changes require the exact prior interval; annual changes require exactly 12 months, four quarters, or one annual/academic interval. Gaps remain null.</p></details>
+            <details><summary>What do directional signals mean?</summary><p id="signal-caution">—</p></details>
+            <details><summary>Why are some ranks unavailable?</summary><p>Raw jobs, GDP size, and student counts mostly reflect county scale. The dashboard compares growth or rates when policy permits and otherwise displays no rank.</p></details>
+          </div>
+          <div class="quality-list" id="quality-list" aria-label="Analytical quality checks"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="content-width footer-inner">
+        <div><strong>The Bay Outlook</strong><span>Economic Research · Policy Analysis · Regional Futures</span></div>
+        <p>Descriptive regional intelligence. Not a causal model, forecast, or substitute for source methodology.</p>
+        <button class="text-button footer-top" type="button" data-scroll-top>Back to top ↑</button>
+      </div>
+    </footer>
+  </div>
+
+  <div id="chart-tooltip" class="chart-tooltip" role="status" aria-live="polite" hidden></div>
+  <script>
+    window.BAY_OUTLOOK_DATA = {{DASHBOARD_DATA}};
+  </script>
+  <script>
+{{DASHBOARD_SCRIPT}}
+  </script>
+</body>
+</html>

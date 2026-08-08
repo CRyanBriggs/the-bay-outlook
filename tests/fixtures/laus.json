@@ -1,0 +1,17 @@
+{
+  "status": "REQUEST_SUCCEEDED",
+  "responseTime": 1,
+  "message": [],
+  "Results": {
+    "series": [
+      {"seriesID": "LAUCN060010000000003", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "4.2", "footnotes": [{"code": "P", "text": "Preliminary."}]}]},
+      {"seriesID": "LAUCN060010000000004", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "34000", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060010000000005", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "775000", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060010000000006", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "809000", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060130000000003", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "4.5", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060130000000004", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "25000", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060130000000005", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "530000", "footnotes": [{}]}]},
+      {"seriesID": "LAUCN060130000000006", "data": [{"year": "2025", "period": "M01", "periodName": "January", "value": "555000", "footnotes": [{}]}]}
+    ]
+  }
+}

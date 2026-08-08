@@ -1,0 +1,3 @@
+area_fips,own_code,industry_code,agglvl_code,size_code,year,qtr,disclosure_code,qtrly_estabs,month1_emplvl,month2_emplvl,month3_emplvl,total_qtrly_wages,avg_wkly_wage
+06001,0,10,70,0,2025,1,,75000,780000,783000,786000,19000000000,2050
+06001,5,10,71,0,2025,1,,73000,650000,652000,654000,15000000000,1980

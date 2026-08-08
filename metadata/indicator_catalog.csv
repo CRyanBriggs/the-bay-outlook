@@ -1,0 +1,26 @@
+indicator_id,pillar,indicator_name,primary_geography,frequency,priority,phase4_pilot,headline_measure
+L1,Labor Market & Employment,Unemployment and labor-force participation,County,Monthly/annual,A,Yes,Unemployment rate
+L2,Labor Market & Employment,Employment and job growth,County and industry,Quarterly,A,Yes,Average monthly covered employment
+L3,Labor Market & Employment,"Wages, wage growth, and job quality",County and industry,Quarterly/annual,A,No,Average weekly wage
+L4,Labor Market & Employment,Occupational demand and projected opportunities,Regional/metro,Projection cycle,B,No,Projected annual openings
+O1,Income Output & Productivity,Real GDP and economic growth,County,Annual,A,Yes,Real GDP
+O2,Income Output & Productivity,Output per worker and productivity,County/region,Annual,B,No,Real GDP per worker
+O3,Income Output & Productivity,Personal and household income,County,Annual,A,No,Real per-capita personal income
+O4,Income Output & Productivity,Poverty and income inequality,County and demographic group,Annual,A,No,Poverty rate
+H1,Housing & Affordability,Housing-cost burden,"County, tenure, and income group",Annual/multiyear,A,Yes,Share spending at least 30 percent of income on housing
+H2,Housing & Affordability,"Rents, home values, and affordability ratios",County,Annual/high-frequency supplement,A,No,Rent-to-income ratio
+H3,Housing & Affordability,Housing construction and permitting,County/place,Monthly/annual,A,No,Permitted housing units
+H4,Housing & Affordability,"Vacancy, overcrowding, and housing stability",County and demographic group,Annual,B,No,Overcrowding rate
+D1,Population & Demographics,Population growth,County,Annual,A,No,Population growth rate
+D2,Population & Demographics,Domestic and international migration,County,Annual,A,No,Net migration
+D3,Population & Demographics,Working-age population and dependency,County,Annual,B,No,Working-age share
+I1,Industry & Innovation,"Industry mix, specialization, and concentration",County and industry,Quarterly/annual,A,No,Industry location quotient
+I2,Industry & Innovation,"Establishments, business formation, and business size",County and industry,Annual,B,No,Establishment growth
+I3,Industry & Innovation,Innovation capacity,County/region,Annual,B,No,Patents per 100000 residents
+M1,Infrastructure & Regional Mobility,Commute time and transportation mode,County and demographic group,Annual,A,No,Mean commute time
+M2,Infrastructure & Regional Mobility,Cross-county commute flows and jobs-housing balance,County pair/region,Periodic,B,No,Share working in county of residence
+M3,Infrastructure & Regional Mobility,"Transit ridership, vehicle miles traveled, and network use",Region/operator/county,Monthly/annual,A,No,Transit ridership index
+E1,Education Skills & Economic Mobility,Educational attainment and regional skills base,County and demographic group,Annual,A,No,Share age 25+ with bachelor's degree or higher
+E2,Education Skills & Economic Mobility,"High-school completion, college readiness, and college-going",County/district/group,Annual,A,Yes,College-going rate within 12 months
+E3,Education Skills & Economic Mobility,"Postsecondary access, affordability, persistence, and completion",Institution/sector with county context,Annual,A,No,Sector-specific completion rate
+E4,Education Skills & Economic Mobility,"Employment, unemployment, and earnings by major",Major/institution/region,Annual,A,No,Employment and median earnings by field
