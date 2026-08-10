@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - phase14-v1-4-equity
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
