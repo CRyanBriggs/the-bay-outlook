@@ -528,7 +528,13 @@ def _fetch_acs_group(
     url = f"https://api.census.gov/data/{year}/acs/acs5?{query}"
     target = raw_dir / "CENSUS_ACS5_DETAIL" / retrieved_at[:10] / f"acs5-{year}-{group}-california.json"
     raw = _download_bytes(url, target)
-    payload = json.loads(raw)
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError as error:
+        preview = raw[:300].decode("utf-8", errors="replace")
+        raise ValueError(
+            f"ACS {year} {group} returned a non-JSON response from {url}: {preview!r}"
+        ) from error
     if not isinstance(payload, list) or len(payload) < 2:
         raise ValueError(f"ACS {year} {group} returned no records")
     header = payload[0]
