@@ -1,0 +1,75 @@
+{
+  "built_at": "2026-08-10T17:11:13Z",
+  "completion_state": "complete",
+  "counts": {
+    "counties": 9,
+    "deterministic_timeline_matches": 28814,
+    "domains": 7,
+    "housing_element_records": 109,
+    "metrics": 42,
+    "observations": 1575,
+    "quality_checks": 10,
+    "source_snapshots": 21,
+    "sources": 6
+  },
+  "design_boundary": {
+    "cohortCompletionRateProduced": false,
+    "countyRankingProduced": false,
+    "policyScoreProduced": false,
+    "rhnaRule": "HCD permit progress is official; completion comparisons are supplemental",
+    "stageFunnelProduced": false,
+    "timelineMatching": "exact jurisdiction + tracking ID, then exact jurisdiction + APN; no fuzzy or address matching",
+    "zoningRule": "mapped category composition is not legal development capacity"
+  },
+  "files": {
+    ".github/workflows/housing-production-update.yml": "3e1927f398456acd2f07488abba84410a164c053091ace3e5ec84a4894fbea38",
+    "config/phase14_housing_production.json": "e711de8d40755eecee63695630615f41b999f0e74c7c7237f448f71dac50e6ee",
+    "data/phase14/production/exports/compliance_records.csv": "91a69d3983c4143130362dde4e7cd2efed39f7174e34473c65dc7bf1e93c4ecc",
+    "data/phase14/production/exports/production_snapshot.csv": "edad17f04357e64d09e0f28129f2c00dc3bc9d18c5341b992ef37a8868f1fa0f",
+    "data/phase14/production/exports/production_time_series.csv": "d89a321cec9bc1184d03fc494f94e5bfacbc1fae71722f018e5380d9bb011600",
+    "data/phase14/production/exports/quality_checks.csv": "f55ae465b6f7c32bf52e834124e1ede4075597306e6052e00d9c042aadcf84b9",
+    "data/phase14/production/exports/rezone_breakdown.csv": "db5c47bc163243923eaf3c385d69a1c02859998036790b67ade971c0c52e7de4",
+    "data/phase14/production/exports/rhna_delivery.csv": "5dc90c0626afa5b3bb479548bbebea0480e30c06fb6b4b2325bf88d138f3cc21",
+    "data/phase14/production/exports/source_freshness.csv": "c42e1d65ce6645df3eb4b1d9ed326a6df776719a060745052303499f09f34853",
+    "data/phase14/production/exports/source_snapshots.csv": "cd6049d8a45ec184c384d8653333afa6c04d9af1c5ac7a65eaa81e341ddacdf4",
+    "data/phase14/production/exports/timeline_coverage.csv": "36e458420f19e08c03273d2d9ebbfc4bc9b51428462a8671c6127e0d1dc4b949",
+    "data/phase14/production/exports/zoning_composition.csv": "36c6621960a5bafc36d8448af18a18c3a2c1708d0cbbbf030b0063827d9a8e48",
+    "data/phase14/production/public/housing-production-policy-data.json": "b404b3fbe30d905d821478a7b01820785288449908a2ff0766060102cfce27d6",
+    "docs/housing-production/DATA_DICTIONARY.md": "5891980742d9ec0c87a19a4fc7ad259a1096a80c726684cfaad7c65651d6f4e3",
+    "docs/housing-production/LIMITATIONS.md": "15f5d795eb4fda3e0c340a798909e7f3f989bbc25f1135f774efaac8efd6bbad",
+    "docs/housing-production/METHODOLOGY.md": "c2055271c62eb4f008f97fc26035dba5ba32313633ef3f524d027f6fb7cc4b8d",
+    "docs/housing-production/README.md": "fcd94410ecc2899b2fc4039ac9e6777653851ed3c03d94c19462514bbb23f6ad",
+    "docs/housing-production/RUNBOOK.md": "2e617370544d49b24a52902e90376090d0425d6eaf92c914b6301751d9e55335",
+    "metadata/housing_production_indicator_catalog.csv": "16a6ec7ab1411ae2cfecd8959ee8659fe1c890b0a7e7dc97a9a73c6a76a9820a",
+    "metadata/housing_production_source_registry.csv": "c995844df32abd299c5b912aff089e8f069c43542a25898bb21d34dfd7108e65",
+    "src/bay_outlook/phase14_production.py": "f8a0fa3771b731436888f707279c10f7d897f64aa975d88495be1fd567e9aa40",
+    "tests/test_phase14_production.py": "882ccb05ec9ebf20ff4158a718c9272d8b055aac3edac3eaba0d80aa6cc0812f"
+  },
+  "missing_required_files": [],
+  "phase": 14,
+  "phase10_hold": {
+    "approved_by": null,
+    "human_signoff": 0,
+    "published_at": null,
+    "status": "human_approval_hold"
+  },
+  "product": "Housing Production & Policy",
+  "product_version": "1.3.0",
+  "project": "The Bay Outlook",
+  "publication": {},
+  "scope": [
+    "accessory_dwelling_units",
+    "housing_applications",
+    "housing_element_compliance",
+    "permitting_timelines",
+    "production_pipeline",
+    "rhna_delivery",
+    "zoning_and_rezoning"
+  ],
+  "verification": {
+    "complete": true,
+    "failed": [],
+    "passing": 19,
+    "total": 19
+  }
+}

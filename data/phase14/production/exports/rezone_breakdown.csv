@@ -1,0 +1,39 @@
+county_fips,county_name,lower_income_capacity,period,realistic_capacity,reported_acres,reported_records,shortfall_description
+06001,Alameda,203.0,2018,203.0,4.19,2.0,No Net Loss
+06001,Alameda,24.0,2018,381.0,40.05,11.0,Shortfall of Sites
+06001,Alameda,86.0,2018,86.0,3.34,3.0,Unaccommodated Need
+06001,Alameda,159.0,2019,159.0,2.46,1.0,No Net Loss
+06001,Alameda,159.0,2020,159.0,2.46,1.0,No Net Loss
+06001,Alameda,612.0,2024,732.0,9.15,1.0,No Net Loss
+06001,Alameda,612.0,2025,732.0,9.15,1.0,No Net Loss
+06013,Contra Costa,1662.0,2023,3036.0,157.775,86.0,Shortfall of Sites
+06013,Contra Costa,0,2023,467.0,528.57,19.0,Unaccommodated Need
+06013,Contra Costa,830.0,2025,1313.0,42.76,34.0,No Net Loss
+06013,Contra Costa,457.0,2025,629.0,26.55,15.0,Shortfall of Sites
+06041,Marin,513.0,2023,968.0,46.68,142.0,Shortfall of Sites
+06041,Marin,62.0,2024,65.0,2.07,1.0,No Net Loss
+06041,Marin,389.0,2024,30791.0,51.553001076,83.0,Shortfall of Sites
+06041,Marin,370.0,2025,702.0,36.4357273307578,76.0,Shortfall of Sites
+06055,Napa,0,2025,4.0,0.21,1.0,Unaccommodated Need
+06075,San Francisco,33776.0,2025,64653.40814419354,3883.5090868381412,48397.0,Shortfall of Sites
+06081,San Mateo,298.0,2018,298.0,10.71,6.0,Shortfall of Sites
+06081,San Mateo,2.0,2018,4.0,1.0,1.0,Unaccommodated Need
+06081,San Mateo,298.0,2019,298.0,10.71,6.0,Shortfall of Sites
+06081,San Mateo,298.0,2020,298.0,10.71,6.0,Shortfall of Sites
+06081,San Mateo,1265.0,2023,1861.0,199.27,39.0,Shortfall of Sites
+06081,San Mateo,2753.0,2024,4709.0,215.81957,81.0,Shortfall of Sites
+06081,San Mateo,204.0,2024,1099.0,13.65,5.0,Unaccommodated Need
+06081,San Mateo,1842.0,2025,3127.0,182.6,45.0,Shortfall of Sites
+06085,Santa Clara,641.0,2018,8584.0,146.05,39.0,No Net Loss
+06085,Santa Clara,7053.0,2023,17767.0,387.5,599.0,Shortfall of Sites
+06085,Santa Clara,6619.0,2024,14398.0,238.33,105.0,Shortfall of Sites
+06085,Santa Clara,1072.0,2025,1534.0,53.76,19.0,Shortfall of Sites
+06085,Santa Clara,140.0,2025,377.0,11.0,3.0,Unaccommodated Need
+06095,Solano,0,2018,322.0,13.21,4.0,Unaccommodated Need
+06095,Solano,117.0,2019,117.0,5.85,2.0,Unaccommodated Need
+06095,Solano,322.0,2021,322.0,13.21,4.0,Unaccommodated Need
+06095,Solano,870.0,2023,1432.0,62.76,16.0,Unaccommodated Need
+06095,Solano,725.0,2024,1384.0,60.76,15.0,Unaccommodated Need
+06095,Solano,449.0,2025,449.0,18.0,7.0,Unaccommodated Need
+06097,Sonoma,194.0,2023,685.0,32.6,6.0,Shortfall of Sites
+06097,Sonoma,140.0,2025,1.6,2.8,2.0,No Net Loss

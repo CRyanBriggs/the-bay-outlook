@@ -12,6 +12,7 @@ from .database import print_summary
 from .pipeline import persist
 from .phase14 import build_phase14, verify_phase14
 from .phase14_access import build_phase14_access, verify_phase14_access
+from .phase14_production import build_phase14_production, verify_phase14_production
 from .sources import acs, bea, cde, laus, qcew
 from .storage import save_snapshot
 
@@ -167,6 +168,18 @@ def command_verify_phase14_access(args: argparse.Namespace) -> int:
     return 0 if report["complete"] else 1
 
 
+def command_build_phase14_production(args: argparse.Namespace) -> int:
+    report = build_phase14_production(built_at=args.built_at, refresh=not args.offline)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["verification"]["complete"] else 1
+
+
+def command_verify_phase14_production(args: argparse.Namespace) -> int:
+    report = verify_phase14_production(manifest_path=Path(args.manifest))
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["complete"] else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="bay-outlook-public")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -215,6 +228,28 @@ def build_parser() -> argparse.ArgumentParser:
         default="data/phase14/access/phase14_v1_2_manifest.json",
     )
     verify_access.set_defaults(func=command_verify_phase14_access)
+
+    production = subparsers.add_parser(
+        "build-phase14-production",
+        help="Build Version 1.3 Housing Production & Policy from documented sources",
+    )
+    production.add_argument("--built-at", help="Optional deterministic UTC retrieval/build time")
+    production.add_argument(
+        "--offline",
+        action="store_true",
+        help="Rebuild Version 1.3 from the published evidence register and public payload",
+    )
+    production.set_defaults(func=command_build_phase14_production)
+
+    verify_production = subparsers.add_parser(
+        "verify-phase14-production",
+        help="Verify production coverage, lineage, calculations, update controls, and hashes",
+    )
+    verify_production.add_argument(
+        "--manifest",
+        default="data/phase14/production/phase14_v1_3_manifest.json",
+    )
+    verify_production.set_defaults(func=command_verify_phase14_production)
     return parser
 
 
