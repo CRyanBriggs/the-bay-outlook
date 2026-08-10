@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-08-10T21:31:04Z",
+  "built_at": "2026-08-10T21:40:54Z",
   "county_count": 9,
   "domain_count": 7,
   "files": [
@@ -9,9 +9,9 @@
       "sha256": "475f3e7ec4ebb37dd353fa82f466c1036524b3d0402f587330d53584f1bf87a6"
     },
     {
-      "byte_count": 7086,
+      "byte_count": 7087,
       "path": "metadata/housing_equity_indicator_catalog.csv",
-      "sha256": "d3b81280c6d5b1cb5715986ae6259f35cdd2c71fc45aad17db6994530e5f2d60"
+      "sha256": "dd128d8b3fbf868df60890f3200a524bf28672f3c1ab1e12eb8de813cd83072f"
     },
     {
       "byte_count": 824,
@@ -44,14 +44,14 @@
       "sha256": "59d1768e6038e7a64efbad3dd7b264e8b99c6747feb55cdb7bb1293556f57a68"
     },
     {
-      "byte_count": 92674,
+      "byte_count": 92750,
       "path": "src/bay_outlook/phase14_equity.py",
-      "sha256": "80c1e6fef6b5c6cb2b261a0d38d98feafeeb5400aad0a14ce6a83277d99e09e7"
+      "sha256": "4af451d7180376f09af000fd5a09da8d066f3c87845e0b45e83871e16be20fa7"
     },
     {
-      "byte_count": 8489,
+      "byte_count": 9129,
       "path": "tests/test_phase14_equity.py",
-      "sha256": "01e73c4b53386f737c202c6f0c85cd6e58edce5d15b559b481d5414714ee48dd"
+      "sha256": "96d715b15957a83134348a4d0f347d015c4f3dae1c8a63824e58212fe7c1e7a9"
     },
     {
       "byte_count": 3035,
@@ -66,37 +66,37 @@
     {
       "byte_count": 3074186,
       "path": "data/phase14/equity/exports/equity_observations.csv",
-      "sha256": "7f470ff511403f1f38a9ef431a10d8f42210e50655c19002664626a8ff84df6d"
+      "sha256": "ee27d8581e463891dab7bdcdf261c119ce6368107f854eb5767c75fb12d47228"
     },
     {
       "byte_count": 1162126,
       "path": "data/phase14/equity/exports/equity_snapshot.csv",
-      "sha256": "ed62eb9038ed16e123d22eb0d9f7889ee4279e9d0007210b049fde7d2aa6345f"
+      "sha256": "700e5b50b5f91defca8253da36464c330f36da09be1d0b64ee15090b243e27be"
     },
     {
       "byte_count": 470752,
       "path": "data/phase14/equity/exports/race_housing.csv",
-      "sha256": "e9c40cad3b8af3dc081e87419a0cc180ae054d65a538424148e701699e92ac52"
+      "sha256": "fec2154fa4d46aa6e83da53c47d13985b618de2f966e30b1a8ef6dc621604e53"
     },
     {
       "byte_count": 507882,
       "path": "data/phase14/equity/exports/education_occupation_affordability.csv",
-      "sha256": "ed3dc9255b480b4ec247f38bd2a79ba2bd5c71a521cad4ae0547380a521b26b5"
+      "sha256": "4338dc6db374c00b25c951a1d9557906d58e92875ee782bd15f1fb74c4a4f02e"
     },
     {
       "byte_count": 113083,
       "path": "data/phase14/equity/exports/commuting_connections.csv",
-      "sha256": "30c68bb7ea9ec7b517e672028a812e97e1989927cb5a8343384c2469e4ad3ee1"
+      "sha256": "7a31f0d974dd7eb4bba2ac5a0b98df73c916ddcfeda857ed14d285da2f9b07c6"
     },
     {
       "byte_count": 13761,
       "path": "data/phase14/equity/exports/source_freshness.csv",
-      "sha256": "a6a439ec3e01bd8f4866b362a6b181e5ead8c9e31e8a30650888343a09abaf1d"
+      "sha256": "ec3de469f9539800b8516e9f897024e2884deb61679d65f3561e0a1464de938d"
     },
     {
       "byte_count": 30881,
       "path": "data/phase14/equity/exports/source_snapshots.csv",
-      "sha256": "fb9ad1e53a7fa715973d3ea879d45b78481eb53d53c5299d36547f39f3429cef"
+      "sha256": "9391b1ecd40f1f509c61a42d23e6c2e9fe52029449d57245c88df5e4ae091844"
     },
     {
       "byte_count": 1596,
@@ -104,9 +104,9 @@
       "sha256": "043321fd2dbb54bf48e5c344a075b6e108fd24afd1c751e6f27cc70912920775"
     },
     {
-      "byte_count": 5614465,
+      "byte_count": 5614466,
       "path": "data/phase14/equity/public/housing-equity-connections-data.json",
-      "sha256": "f430f52a18feb9959a99da573c6e0f3b2e40577378662ed6eb0d2a5b3c445d53"
+      "sha256": "b2a531816e1a13b7fccef4cbdb47fc63e5d1dc4532cc44356749be3404d466ff"
     }
   ],
   "inherits": "Housing Production & Policy 1.3.0",
