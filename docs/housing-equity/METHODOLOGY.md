@@ -6,13 +6,16 @@ The primary public grain is county × period × metric × subgroup × tenure × 
 
 ## Source systems
 
-1. Census ACS 5-Year Detailed Tables, 2022–2024, for residence-based household and person estimates.
+1. Census ACS 5-Year Detailed Tables, 2022–2024, for residence-based household and person estimates, retrieved from the official table-based ACS Summary File with estimates and 90% margins of error.
 2. Census LEHD LODES8 JT01, 2021–2023, for primary-job home/work flows aggregated from census blocks to workplace county.
 3. HUD FY2026 revised two-bedroom Fair Market Rent, inherited file-for-file from the verified Version 1.2 evidence layer.
 
 The ACS and LODES universes remain separate. ACS describes sampled residents, householders, workers, or housing units according to each table. LODES describes primary jobs and uses workplace plus home geocodes. A job is not treated as a person or household.
 
 ## ACS table contract
+
+Each accepted ACS snapshot is a deterministic nine-county extract from the official table-based Summary File. The extract records the source-file URL and response headers; estimate and margin columns are normalized to the project’s stable field convention. This credential-free access path is used because Census now requires an API key for all data API queries.
+
 
 - B25003A–I: tenure by race or Hispanic origin of householder.
 - B25140A–I: housing costs over 30% and over 50% of income, by race or Hispanic origin and tenure. This family begins in 2023.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import gzip
+import io
 import hashlib
 import json
 import math
@@ -10,7 +11,6 @@ import shutil
 import sqlite3
 import tempfile
 import time
-import urllib.parse
 import urllib.request
 from collections import defaultdict
 from datetime import UTC, datetime
@@ -276,30 +276,6 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(stream))
 
 
-def _download_bytes(url: str, target: Path, *, attempts: int = 4) -> bytes:
-    target.parent.mkdir(parents=True, exist_ok=True)
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "The-Bay-Outlook/1.4 (evidence refresh)"},
-    )
-    last_error: Exception | None = None
-    for attempt in range(attempts):
-        try:
-            with urllib.request.urlopen(request, timeout=240) as response:
-                value = response.read()
-            if not value:
-                raise RuntimeError(f"zero-byte response from {url}")
-            with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as handle:
-                temporary = Path(handle.name)
-                handle.write(value)
-            os.replace(temporary, target)
-            return value
-        except Exception as error:  # pragma: no cover - network-specific branch
-            last_error = error
-            time.sleep(min(8, 1 + 2**attempt))
-    raise RuntimeError(f"unable to retrieve {url}: {last_error}")
-
-
 def _download_file(url: str, target: Path, *, attempts: int = 4) -> Path:
     target.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(
@@ -518,47 +494,114 @@ def _fetch_acs_group(
     group: str,
     retrieved_at: str,
 ) -> tuple[dict[str, dict[str, str]], dict[str, Any]]:
-    query = urllib.parse.urlencode(
-        {
-            "get": f"group({group})",
-            "for": "county:*",
-            "in": "state:06",
-        }
+    url = (
+        "https://www2.census.gov/programs-surveys/acs/summary_file/"
+        f"{year}/table-based-SF/data/5YRData/acsdt5y{year}-{group.lower()}.dat"
     )
-    url = f"https://api.census.gov/data/{year}/acs/acs5?{query}"
-    target = raw_dir / "CENSUS_ACS5_DETAIL" / retrieved_at[:10] / f"acs5-{year}-{group}-california.json"
-    raw = _download_bytes(url, target)
-    try:
-        payload = json.loads(raw)
-    except json.JSONDecodeError as error:
-        preview = raw[:300].decode("utf-8", errors="replace")
-        raise ValueError(
-            f"ACS {year} {group} returned a non-JSON response from {url}: {preview!r}"
-        ) from error
-    if not isinstance(payload, list) or len(payload) < 2:
-        raise ValueError(f"ACS {year} {group} returned no records")
-    header = payload[0]
-    rows = [dict(zip(header, values, strict=True)) for values in payload[1:]]
-    selected = {
-        f"06{row['county']}": row
-        for row in rows
-        if f"06{row.get('county', '')}" in COUNTY_BY_FIPS
+    target = (
+        raw_dir
+        / "CENSUS_ACS5_DETAIL"
+        / retrieved_at[:10]
+        / f"acs5-{year}-{group}-bay-counties-summary-file.json"
+    )
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "The-Bay-Outlook/1.4 (evidence refresh)"},
+    )
+    expected_counties = set(COUNTY_BY_FIPS)
+    selected: dict[str, dict[str, str]] = {}
+    response_headers: dict[str, str] = {}
+    scanned_rows = 0
+    last_error: Exception | None = None
+
+    for attempt in range(4):
+        try:
+            selected = {}
+            scanned_rows = 0
+            with urllib.request.urlopen(request, timeout=300) as response:
+                response_headers = {
+                    "content_length": response.headers.get("Content-Length", ""),
+                    "etag": response.headers.get("ETag", ""),
+                    "last_modified": response.headers.get("Last-Modified", ""),
+                }
+                stream = io.TextIOWrapper(response, encoding="utf-8-sig", newline="")
+                try:
+                    reader = csv.DictReader(stream, delimiter="|")
+                    if not reader.fieldnames or "GEO_ID" not in reader.fieldnames:
+                        raise ValueError(
+                            f"ACS {year} {group} summary file has no GEO_ID field"
+                        )
+                    for row in reader:
+                        scanned_rows += 1
+                        geo_id = str(row.get("GEO_ID", "")).strip()
+                        prefix = "0500000US"
+                        if not geo_id.startswith(prefix):
+                            continue
+                        county_fips = geo_id[len(prefix) :]
+                        if county_fips not in expected_counties:
+                            continue
+
+                        normalized = {
+                            "GEO_ID": geo_id,
+                            "state": county_fips[:2],
+                            "county": county_fips[2:],
+                        }
+                        variable_prefix = f"{group}_"
+                        for field, value in row.items():
+                            if field is None or not field.startswith(variable_prefix):
+                                continue
+                            suffix = field[len(variable_prefix) :]
+                            if (
+                                len(suffix) == 4
+                                and suffix[0] in {"E", "M"}
+                                and suffix[1:].isdigit()
+                            ):
+                                normalized[
+                                    f"{group}_{suffix[1:]}{suffix[0]}"
+                                ] = value
+                        selected[county_fips] = normalized
+                        if set(selected) == expected_counties:
+                            break
+                finally:
+                    stream.detach()
+
+            if set(selected) != expected_counties:
+                raise ValueError(
+                    f"ACS {year} {group} county coverage {sorted(selected)} "
+                    "does not match Bay Area"
+                )
+            break
+        except Exception as error:  # pragma: no cover - network-specific branch
+            last_error = error
+            time.sleep(min(8, 1 + 2**attempt))
+    else:
+        raise RuntimeError(f"unable to retrieve {url}: {last_error}")
+
+    source_release = f"ACS5-{year}-{group}-table-based-summary-file"
+    extract = {
+        "format": "ACS Table-Based Summary File county extract",
+        "source_file_url": url,
+        "source_release": source_release,
+        "response_headers": response_headers,
+        "selection": {
+            "summary_level": "050",
+            "state_fips": "06",
+            "county_fips": sorted(expected_counties),
+            "rows_scanned_before_complete": scanned_rows,
+        },
+        "rows": [selected[fips] for fips in sorted(selected)],
     }
-    if set(selected) != set(COUNTY_BY_FIPS):
-        raise ValueError(
-            f"ACS {year} {group} county coverage {sorted(selected)} does not match Bay Area"
-        )
-    source_release = f"ACS5-{year}-{group}"
+    _write_json(target, extract)
     snapshot = {
         "source_id": "CENSUS_ACS5_DETAIL",
         "source_url": url,
         "source_release": source_release,
         "retrieved_at": retrieved_at,
-        "snapshot_sha256": _sha256_bytes(raw),
-        "byte_count": len(raw),
-        "snapshot_kind": "official_api_response_all_california_counties",
+        "snapshot_sha256": _sha256(target),
+        "byte_count": target.stat().st_size,
+        "snapshot_kind": "official_summary_file_bay_county_extract",
         "raw_path": target.relative_to(root).as_posix(),
-        "row_count": len(rows),
+        "row_count": len(selected),
     }
     return selected, snapshot
 

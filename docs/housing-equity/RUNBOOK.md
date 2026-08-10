@@ -9,7 +9,7 @@ PYTHONPATH=src python -m bay_outlook.cli verify-phase14-equity
 PYTHONPATH=src python -m unittest discover -s tests -v
 ~~~
 
-The live build retrieves official ACS API responses and LODES compressed OD files, hashes each accepted release, writes normalized exports and a private SQLite warehouse, then verifies the public package.
+The live build streams official table-based ACS Summary Files until the nine required county records are captured, retrieves LODES compressed OD files, hashes each accepted extract or release, writes normalized exports and a private SQLite warehouse, then verifies the public package.
 
 ## Offline public verification
 
@@ -34,4 +34,4 @@ Before publication, a named human must review:
 8. GitHub and Site release identity; and
 9. the absence of rankings, scores, causal language, or automated narrative.
 
-Raw ACS responses, compressed statewide LODES files, and the SQLite warehouse belong in the sealed checkpoint, not the recruiter-safe public repository. The Phase 10 baseline report remains on human_approval_hold.
+Raw ACS county extracts, compressed statewide LODES files, and the SQLite warehouse belong in the sealed checkpoint, not the recruiter-safe public repository. The Phase 10 baseline report remains on human_approval_hold.

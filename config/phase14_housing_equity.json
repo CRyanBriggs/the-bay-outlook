@@ -39,7 +39,8 @@
     "county_ranking": false,
     "equity_score": false,
     "causal_inference": false,
-    "automated_narrative": false
+    "automated_narrative": false,
+    "acs_access_method": "official table-based ACS Summary File county extracts"
   },
   "commuting_boundary": {
     "lodes_job_type": "JT01 primary jobs",
