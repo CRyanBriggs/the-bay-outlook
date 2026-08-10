@@ -1,0 +1,11 @@
+check_name,passed,detail
+seven_domain_scope,1,"[""accessory_dwelling_units"", ""housing_applications"", ""housing_element_compliance"", ""permitting_timelines"", ""production_pipeline"", ""rhna_delivery"", ""zoning_and_rezoning""]"
+nine_county_critical_coverage,1,"{""accessory_dwelling_units"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""housing_applications"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""housing_element_compliance"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""permitting_timelines"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""production_pipeline"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""rhna_delivery"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""], ""zoning_and_rezoning"": [""06001"", ""06013"", ""06041"", ""06055"", ""06075"", ""06081"", ""06085"", ""06095"", ""06097""]}"
+eight_year_annual_history,1,{}
+natural_key_uniqueness,1,[]
+bounded_ratio_ranges,1,[]
+complete_source_lineage,1,"{""sources"": [""CA_HCD_APR_TABLE_A"", ""CA_HCD_APR_TABLE_A2"", ""CA_HCD_APR_TABLE_C"", ""CA_HCD_HOUSING_ELEMENT_COMPLIANCE"", ""CA_HCD_RHNA"", ""CA_LCI_STATEWIDE_ZONING""], ""unresolved_releases"": []}"
+stage_flow_boundaries,1,"{""cohortCompletionRateProduced"": false, ""countyRankingProduced"": false, ""policyScoreProduced"": false, ""rhnaRule"": ""HCD permit progress is official; completion comparisons are supplemental"", ""stageFunnelProduced"": false, ""timelineMatching"": ""exact jurisdiction + tracking ID, then exact jurisdiction + APN; no fuzzy or address matching"", ""zoningRule"": ""mapped category composition is not legal development capacity""}"
+deterministic_timeline_coverage,1,[]
+zoning_composition_reproducibility,1,[]
+rhna_calculation_reproducibility,1,[]

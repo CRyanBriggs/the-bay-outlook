@@ -1,0 +1,110 @@
+compliance_status,county_fips,county_name,cycle,date_received,is_in_compliance,jurisdiction,planning_period,record_type,review_status,reviewed_date
+In,06001,Alameda,6th Cycle,2022-11-16,True,Alameda,6S,Adopted,In,2022-12-20
+In,06001,Alameda,6th Cycle,2024-12-19,True,Alameda County,6S,Adopted,In,2024-12-31
+In,06001,Alameda,6th Cycle,2023-08-16,True,Albany,6S,Adopted,In,2023-09-08
+In,06001,Alameda,6th Cycle,2023-01-24,True,Berkeley,6S,Adopted,In,2023-02-28
+In,06001,Alameda,6th Cycle,2023-11-22,True,Dublin,6S,Adopted,In,2024-01-19
+In,06001,Alameda,6th Cycle,2023-01-20,True,Emeryville,6S,Adopted,In,2023-02-03
+In,06001,Alameda,6th Cycle,2023-01-23,True,Fremont,6S,Adopted,In,2023-03-22
+In,06001,Alameda,6th Cycle,2023-06-07,True,Hayward,6S,Adopted,In,2023-07-27
+In,06001,Alameda,6th Cycle,2023-03-14,True,Livermore,6S,Adopted,In,2023-03-24
+In,06001,Alameda,6th Cycle,2023-11-01,True,Newark,6S,Adopted,In,2023-12-21
+In,06001,Alameda,6th Cycle,2023-02-13,True,Oakland,6S,Adopted,In,2023-02-17
+In,06001,Alameda,6th Cycle,2023-09-11,True,Piedmont,6S,Adopted,In,2023-11-09
+In,06001,Alameda,6th Cycle,2023-06-27,True,Pleasanton,6S,Adopted,In,2023-08-25
+In,06001,Alameda,6th Cycle,2022-12-09,True,San Leandro,6S,Adopted,In,2023-02-02
+In,06001,Alameda,6th Cycle,2023-05-25,True,Union City,6S,Adopted,In,2023-05-30
+In,06013,Contra Costa,6th Cycle,2023-08-15,True,Antioch,6S,Adopted,In,2023-10-12
+In,06013,Contra Costa,6th Cycle,2024-02-14,True,Brentwood,6S,Adopted,In,2024-04-12
+In,06013,Contra Costa,6th Cycle,2026-02-12,True,Clayton,6S,Adopted,In,2026-04-13
+In,06013,Contra Costa,6th Cycle,2023-09-15,True,Concord,6S,Adopted,In,2023-10-20
+In,06013,Contra Costa,6th Cycle,2023-12-13,True,Contra Costa County,6S,Adopted,In,2024-01-22
+In,06013,Contra Costa,6th Cycle,2024-02-09,True,Danville,6S,Adopted,In,2024-04-09
+In,06013,Contra Costa,6th Cycle,2023-08-17,True,El Cerrito,6S,Adopted,In,2023-08-22
+In,06013,Contra Costa,6th Cycle,2024-12-16,True,Hercules,6S,Adopted,In,2025-01-09
+In,06013,Contra Costa,6th Cycle,2025-01-30,True,Lafayette,6S,Adopted,In,2025-03-28
+In,06013,Contra Costa,6th Cycle,2025-06-26,True,Martinez,6S,Adopted,In,2025-08-25
+In,06013,Contra Costa,6th Cycle,2023-07-17,True,Moraga,6S,Adopted,In,2023-09-14
+In,06013,Contra Costa,6th Cycle,2023-03-29,True,Oakley,6S,Adopted,In,2023-05-24
+In,06013,Contra Costa,6th Cycle,2023-02-01,True,Orinda,6S,Adopted,In,2023-03-30
+In,06013,Contra Costa,6th Cycle,2023-06-23,True,Pinole,6S,Adopted,In,2023-07-20
+In,06013,Contra Costa,6th Cycle,2024-08-09,True,Pittsburg,6S,Adopted,In,2024-10-02
+In,06013,Contra Costa,6th Cycle,2023-10-31,True,Pleasant Hill,6S,Adopted,In,2023-11-22
+In,06013,Contra Costa,6th Cycle,2023-09-26,True,Richmond,6S,Adopted,In,2023-10-02
+In,06013,Contra Costa,6th Cycle,2024-03-21,True,San Pablo,6S,Adopted,In,2024-05-20
+In,06013,Contra Costa,6th Cycle,2023-02-06,True,San Ramon,6S,Adopted,In,2023-02-27
+In,06013,Contra Costa,6th Cycle,2023-08-25,True,Walnut Creek,6S,Adopted,In,2023-10-24
+In,06041,Marin,6th Cycle,2026-02-10,True,Belvedere,6S,Adopted,In,2026-02-26
+In,06041,Marin,6th Cycle,2023-06-21,True,Corte Madera,6S,Adopted,In,2023-08-15
+In,06041,Marin,6th Cycle,2024-03-14,True,Fairfax,6S,Adopted,In,2024-04-08
+In,06041,Marin,6th Cycle,2024-09-19,True,Larkspur,6S,Adopted,In,2024-10-08
+In,06041,Marin,6th Cycle,2025-05-05,True,Marin County,6S,Adopted,In,2025-05-23
+In,06041,Marin,6th Cycle,2023-10-27,True,Mill Valley,6S,Adopted,In,2023-12-22
+In,06041,Marin,6th Cycle,2024-05-09,True,Novato,6S,Adopted,In,2024-06-21
+In,06041,Marin,6th Cycle,2024-05-16,True,Ross,6S,Adopted,In,2024-06-04
+In,06041,Marin,6th Cycle,2024-01-30,True,San Anselmo,6S,Adopted,In,2024-03-28
+In,06041,Marin,6th Cycle,2023-05-18,True,San Rafael,6S,Adopted,In,2023-06-22
+In,06041,Marin,6th Cycle,2025-06-04,True,Sausalito,6S,Adopted,In,2025-07-01
+In,06041,Marin,6th Cycle,2023-09-22,True,Tiburon,6S,Adopted,In,2023-10-18
+In,06055,Napa,6th Cycle,2023-05-01,True,American Canyon,6S,Adopted,In,2023-06-30
+In,06055,Napa,6th Cycle,2023-08-10,True,Calistoga,6S,Adopted,In,2023-10-09
+In,06055,Napa,6th Cycle,2023-11-06,True,Napa,6S,Adopted,In,2023-12-11
+In,06055,Napa,6th Cycle,2024-06-06,True,Napa County,6S,Adopted,In,2024-07-12
+In,06055,Napa,6th Cycle,2023-08-31,True,Saint Helena,6S,Adopted,In,2023-09-25
+In,06055,Napa,6th Cycle,2024-06-12,True,Yountville,6S,Adopted,In,2024-08-07
+In,06075,San Francisco,6th Cycle,2023-01-31,True,San Francisco,6S,Adopted,In,2023-02-01
+In,06081,San Mateo,6th Cycle,2025-03-06,True,Atherton,6S,Adopted,In,2025-05-05
+In,06081,San Mateo,6th Cycle,2024-09-11,True,Belmont,6S,Adopted,In,2024-10-16
+Enforcement Out,06081,San Mateo,6th Cycle,2023-05-19,False,Brisbane,6S,Adopted,In,2023-05-25
+In,06081,San Mateo,6th Cycle,2024-03-15,True,Burlingame,6S,Adopted,In,2024-03-20
+In,06081,San Mateo,6th Cycle,2024-01-11,True,Colma,6S,Adopted,In,2024-03-11
+In,06081,San Mateo,6th Cycle,2024-11-13,True,Daly City,6S,Adopted,In,2024-12-03
+In,06081,San Mateo,6th Cycle,2024-03-21,True,East Palo Alto,6S,Adopted,In,2024-04-29
+In,06081,San Mateo,6th Cycle,2024-03-21,True,Foster City,6S,Adopted,In,2024-04-18
+Out,06081,San Mateo,6th Cycle,2025-12-05,False,Half Moon Bay,6S,Adopted,Out,2026-02-02
+In,06081,San Mateo,6th Cycle,2024-02-01,True,Hillsborough,6S,Adopted,In,2024-03-28
+In,06081,San Mateo,6th Cycle,2024-01-24,True,Menlo Park,6S,Adopted,In,2024-03-20
+In,06081,San Mateo,6th Cycle,2024-02-28,True,Millbrae,6S,Adopted,In,2024-03-01
+In,06081,San Mateo,6th Cycle,2025-09-02,True,Pacifica,6S,Adopted,In,2025-09-19
+In,06081,San Mateo,6th Cycle,2026-07-16,True,Portola Valley,6S,Subsequent Draft,In Review,
+In,06081,San Mateo,6th Cycle,2023-02-22,True,Redwood City,6S,Adopted,In,2023-03-27
+In,06081,San Mateo,6th Cycle,2024-09-25,True,San Bruno,6S,Adopted,In,2024-10-21
+In,06081,San Mateo,6th Cycle,2024-04-19,True,San Carlos,6S,Adopted,In,2024-04-25
+In,06081,San Mateo,6th Cycle,2026-04-07,True,San Mateo,6S,Adopted,In,2026-06-01
+In,06081,San Mateo,6th Cycle,2026-04-21,True,San Mateo County,6S,Adopted,In,2026-05-18
+In,06081,San Mateo,6th Cycle,2023-10-27,True,South San Francisco,6S,Adopted,In,2023-11-20
+In,06081,San Mateo,6th Cycle,2025-01-15,True,Woodside,6S,Adopted,In,2025-01-29
+In,06085,Santa Clara,6th Cycle,2023-04-26,True,Campbell,6S,Adopted,In,2023-05-30
+In,06085,Santa Clara,6th Cycle,2024-07-12,True,Cupertino,6S,Adopted,In,2024-09-04
+In,06085,Santa Clara,6th Cycle,2023-08-09,True,Gilroy,6S,Adopted,In,2023-08-21
+In,06085,Santa Clara,6th Cycle,2023-08-18,True,Los Altos,6S,Adopted,In,2023-09-05
+In,06085,Santa Clara,6th Cycle,2025-12-12,True,Los Altos Hills,6S,Adopted,In,2026-02-10
+In,06085,Santa Clara,6th Cycle,2024-06-06,True,Los Gatos,6S,Adopted,In,2024-07-10
+In,06085,Santa Clara,6th Cycle,2023-05-16,True,Milpitas,6S,Adopted,In,2023-05-17
+In,06085,Santa Clara,6th Cycle,2024-05-13,True,Monte Sereno,6S,Adopted,In,2024-07-05
+In,06085,Santa Clara,6th Cycle,2023-10-05,True,Morgan Hill,6S,Adopted,In,2023-11-29
+In,06085,Santa Clara,6th Cycle,2023-04-26,True,Mountain View,6S,Adopted,In,2023-05-26
+In,06085,Santa Clara,6th Cycle,2024-07-26,True,Palo Alto,6S,Adopted,In,2024-08-20
+In,06085,Santa Clara,6th Cycle,2023-11-30,True,San Jose,6S,Adopted,In,2024-01-29
+In,06085,Santa Clara,6th Cycle,2025-12-19,True,Santa Clara,6S,Adopted,In,2026-02-10
+In,06085,Santa Clara,6th Cycle,2025-01-29,True,Santa Clara County,6S,Adopted,In,2025-02-05
+In,06085,Santa Clara,6th Cycle,2024-07-05,True,Saratoga,6S,Adopted,In,2024-07-08
+In,06085,Santa Clara,6th Cycle,2024-02-29,True,Sunnyvale,6S,Adopted,In,2024-03-06
+In,06095,Solano,6th Cycle,2024-03-05,True,Benicia,6S,Adopted,In,2024-04-04
+In,06095,Solano,6th Cycle,2023-03-27,True,Dixon,6S,Adopted,In,2023-05-24
+In,06095,Solano,6th Cycle,2023-02-09,True,Fairfield,6S,Adopted,In,2023-04-10
+In,06095,Solano,6th Cycle,2023-07-31,True,Rio Vista,6S,Adopted,In,2023-09-01
+In,06095,Solano,6th Cycle,2024-02-09,True,Solano County,6S,Adopted,In,2024-04-09
+In,06095,Solano,6th Cycle,2023-03-24,True,Suisun City,6S,Adopted,In,2023-05-23
+In,06095,Solano,6th Cycle,2023-07-28,True,Vacaville,6S,Adopted,In,2023-09-18
+In,06095,Solano,6th Cycle,2024-12-31,True,Vallejo,6S,Adopted,In,2024-12-31
+In,06097,Sonoma,6th Cycle,2023-07-31,True,Cloverdale,6S,Adopted,In,2023-09-26
+In,06097,Sonoma,6th Cycle,2023-04-03,True,Cotati,6S,Adopted,In,2023-06-02
+In,06097,Sonoma,6th Cycle,2023-05-02,True,Healdsburg,6S,Adopted,In,2023-06-29
+In,06097,Sonoma,6th Cycle,2023-03-22,True,Petaluma,6S,Adopted,In,2023-05-18
+In,06097,Sonoma,6th Cycle,2023-01-26,True,Rohnert Park,6S,Adopted,In,2023-03-20
+In,06097,Sonoma,6th Cycle,2025-07-28,True,Santa Rosa,6S,Adopted,In,2025-09-12
+In,06097,Sonoma,6th Cycle,2023-01-09,True,Sebastopol,6S,Adopted,In,2023-03-07
+In,06097,Sonoma,6th Cycle,2023-02-14,True,Sonoma,6S,Adopted,In,2023-04-13
+In,06097,Sonoma,6th Cycle,2023-08-30,True,Sonoma County,6S,Adopted,In,2023-10-26
+In,06097,Sonoma,6th Cycle,2023-08-18,True,Windsor,6S,Adopted,In,2023-08-31

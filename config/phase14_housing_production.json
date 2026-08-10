@@ -1,0 +1,47 @@
+{
+  "product": "Housing Production & Policy",
+  "version": "1.3.0",
+  "inherits": "Housing Access & Displacement 1.2.0",
+  "counties_file": "config/counties.csv",
+  "domains": [
+    "accessory_dwelling_units",
+    "housing_applications",
+    "housing_element_compliance",
+    "permitting_timelines",
+    "production_pipeline",
+    "rhna_delivery",
+    "zoning_and_rezoning"
+  ],
+  "history": {
+    "annual_progress_reports": [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+    "rhna_permit_and_completion_numerator": [2023, 2024, 2025],
+    "rhna_cycle": "sixth cycle",
+    "housing_element_status": "portal current at 2026-08-10 retrieval",
+    "statewide_zoning_source_vintage": "2024-12-19"
+  },
+  "matching": {
+    "first_rule": "exact jurisdiction plus tracking ID",
+    "fallback_rule": "exact jurisdiction plus APN",
+    "fuzzy_matching": false,
+    "address_matching": false,
+    "coverage_required": true
+  },
+  "design": {
+    "stage_funnel": false,
+    "cohort_completion_rate": false,
+    "county_ranking": false,
+    "policy_score": false,
+    "zoning_capacity_estimate": false
+  },
+  "refresh": {
+    "candidate_schedule": "monthly",
+    "automatic_public_deployment": false,
+    "human_review_required": true
+  },
+  "publication": {
+    "descriptive_data_allowed_after_verification": true,
+    "automated_narrative_allowed": false,
+    "named_human_required_for_new_analysis": true,
+    "phase10_report_status": "human_approval_hold"
+  }
+}
