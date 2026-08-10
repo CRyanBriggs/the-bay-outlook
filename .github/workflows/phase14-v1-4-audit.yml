@@ -38,7 +38,7 @@ jobs:
               "B25003F","B25003G","B25003H","B25003I",
               "B25140A","B25140B","B25140C","B25140D","B25140E",
               "B25140F","B25140G","B25140H","B25140I",
-              "B25007","B25115","B20004","B24011","B08303","B08006","B25044",
+              "B25007","B25013","B25115","B20004","B24011","B08303","B08006","B25044",
           ]
           all_groups = {}
           for group in groups:
@@ -61,6 +61,10 @@ jobs:
                   "variables": variables,
               }
               print(f"ACS_GROUP {group} {len(variables)}")
+              if group in {"B25003A","B25140A","B25007","B25013","B25115","B20004","B24011","B08303","B08006","B25044"}:
+                  for variable_name, variable_meta in variables.items():
+                      if variable_name.endswith("E"):
+                          print(f"ACS_VAR {variable_name} | {variable_meta['label']}")
           (output / "acs_groups.json").write_text(
               json.dumps(all_groups, indent=2, sort_keys=True), encoding="utf-8"
           )
