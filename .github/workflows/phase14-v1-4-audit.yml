@@ -38,29 +38,32 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Re-run Version 1.4 verifier
         run: PYTHONPATH=src python -m bay_outlook.cli verify-phase14-equity
-      - name: Commit verified public artifacts to the PR branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/phase14/equity/exports
-          git add data/phase14/equity/public
-          git add data/phase14/equity/phase14_v1_4_manifest.json
-          git add metadata/housing_equity_indicator_catalog.csv
-          git add metadata/housing_equity_source_registry.csv
-          if ! git diff --cached --quiet; then
-            git commit -m "Build verified Phase 14 v1.4 evidence"
-            git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
-          fi
       - name: Prepare named-human review packet
         run: |
-          mkdir -p candidate-review
-          cp data/phase14/equity/exports/quality_checks.csv candidate-review/
-          cp data/phase14/equity/exports/source_freshness.csv candidate-review/
-          cp data/phase14/equity/exports/source_snapshots.csv candidate-review/
-          cp data/phase14/equity/phase14_v1_4_manifest.json candidate-review/
+          mkdir -p candidate-review/data/phase14/equity
+          mkdir -p candidate-review/metadata
+          cp -R data/phase14/equity/exports candidate-review/data/phase14/equity/
+          cp -R data/phase14/equity/public candidate-review/data/phase14/equity/
+          cp data/phase14/equity/phase14_v1_4_manifest.json candidate-review/data/phase14/equity/
+          cp metadata/housing_equity_indicator_catalog.csv candidate-review/metadata/
+          cp metadata/housing_equity_source_registry.csv candidate-review/metadata/
           printf '%s\n' 'No Site deployment or narrative publication is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
       - uses: actions/upload-artifact@v4
         with:
           name: housing-equity-v1-4-candidate-review
           path: candidate-review
           if-no-files-found: error
+      - name: Commit verified public artifacts to the PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/phase14/equity/exports
+          git add -f data/phase14/equity/public
+          git add -f data/phase14/equity/phase14_v1_4_manifest.json
+          git add -f metadata/housing_equity_indicator_catalog.csv
+          git add -f metadata/housing_equity_source_registry.csv
+          git diff --cached --stat
+          if ! git diff --cached --quiet; then
+            git commit -m "Build verified Phase 14 v1.4 evidence"
+            git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          fi

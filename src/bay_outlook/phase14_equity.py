@@ -13,6 +13,7 @@ import tempfile
 import time
 import urllib.request
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Iterable
@@ -2169,21 +2170,37 @@ def build_phase14_equity(
     acs: dict[tuple[int, str], dict[str, dict[str, str]]] = {}
     refs: dict[tuple[int, str], dict[str, Any]] = {}
 
+    acs_requests: list[tuple[int, str]] = []
     for year in ACS_YEARS:
         groups = list(COMMON_ACS_GROUPS)
         if year in ACS_COST_BURDEN_YEARS:
             groups.extend(COST_ACS_GROUPS)
-        for group in groups:
-            rows, snapshot = _fetch_acs_group(
+        acs_requests.extend((year, group) for group in groups)
+
+    acs_results: dict[
+        tuple[int, str],
+        tuple[dict[str, dict[str, str]], dict[str, Any]],
+    ] = {}
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        future_keys = {
+            executor.submit(
+                _fetch_acs_group,
                 root=root,
                 raw_dir=raw_dir,
                 year=year,
                 group=group,
                 retrieved_at=built_at,
-            )
-            acs[(year, group)] = rows
-            refs[(year, group)] = _source_reference(snapshot)
-            snapshots.append(snapshot)
+            ): (year, group)
+            for year, group in acs_requests
+        }
+        for future in as_completed(future_keys):
+            acs_results[future_keys[future]] = future.result()
+
+    for key in acs_requests:
+        rows, snapshot = acs_results[key]
+        acs[key] = rows
+        refs[key] = _source_reference(snapshot)
+        snapshots.append(snapshot)
 
     fmr, fmr_source = _load_fmr_benchmarks(root, built_at)
     snapshots.append(fmr_source)
