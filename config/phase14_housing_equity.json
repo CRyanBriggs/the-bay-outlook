@@ -1,0 +1,44 @@
+{
+  "product": "Housing Equity & Economic Connections",
+  "version": "1.4.0",
+  "inherits": "Housing Production & Policy 1.3.0",
+  "counties_file": "config/counties.csv",
+  "domains": [
+    "race_ethnicity_and_housing",
+    "age_and_tenure",
+    "household_type_and_housing",
+    "education_and_earnings",
+    "occupation_and_affordability",
+    "commuting_and_job_access",
+    "transportation_and_housing"
+  ],
+  "source_vintages": {
+    "acs_five_year": [2022, 2023, 2024],
+    "lodes": [2021, 2022, 2023],
+    "hud_fmr": "FY2026 inherited from verified Version 1.2"
+  },
+  "method": {
+    "acs_confidence_level": 90,
+    "derived_moe_required_when_supported": true,
+    "subgroup_denominators_published": true,
+    "reliability_flags_required": true,
+    "overlapping_acs_vintages_disclosed": true,
+    "race_categories_additive": false,
+    "county_ranking": false,
+    "equity_score": false,
+    "causal_inference": false,
+    "automated_narrative": false
+  },
+  "commuting_boundary": {
+    "lodes_is_job_based": true,
+    "acs_is_person_or_household_based": true,
+    "residence_and_workplace_geographies_kept_separate": true,
+    "out_of_state_flow_limits_disclosed": true
+  },
+  "publication": {
+    "descriptive_data_allowed_after_verification": true,
+    "named_human_required_for_new_analysis": true,
+    "automatic_public_deployment": false,
+    "phase10_report_status": "human_approval_hold"
+  }
+}
