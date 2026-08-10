@@ -166,6 +166,21 @@ class Phase14EquityArtifactTests(unittest.TestCase):
                 places=6,
             )
 
+    def test_metric_catalog_names_tenure_dimension(self) -> None:
+        catalog_path = (
+            PROJECT_ROOT / "metadata" / "housing_equity_indicator_catalog.csv"
+        )
+        with catalog_path.open(newline="", encoding="utf-8") as stream:
+            catalog = list(csv.DictReader(stream))
+        vehicle_access = [
+            row
+            for row in catalog
+            if row["domain"] == "transportation_and_housing"
+            and row["metric_id"] == "zero_vehicle_households_pct"
+        ]
+        self.assertEqual(len(vehicle_access), 1)
+        self.assertEqual(vehicle_access[0]["subgroup_dimension"], "tenure")
+
     def test_source_snapshots_and_quality_checks(self) -> None:
         with (self.output / "exports" / "source_snapshots.csv").open(
             newline="", encoding="utf-8"

@@ -1553,7 +1553,10 @@ def _metric_catalog(observations: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "metric_id": row["metric_id"],
                 "metric_name": row["metric_name"],
                 "unit": row["unit"],
-                "subgroup_dimension": row["subgroup_type"] or row["tenure"] or "none",
+                "subgroup_dimension": (
+                    row["subgroup_type"]
+                    or ("tenure" if row["tenure"] else "none")
+                ),
                 "geography_basis": row["geography_basis"],
                 "history_start": min(
                     candidate["period"]
