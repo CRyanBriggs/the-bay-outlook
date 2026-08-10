@@ -1,0 +1,127 @@
+{
+  "built_at": "2026-08-10T21:31:04Z",
+  "county_count": 9,
+  "domain_count": 7,
+  "files": [
+    {
+      "byte_count": 1875,
+      "path": "config/phase14_housing_equity.json",
+      "sha256": "475f3e7ec4ebb37dd353fa82f466c1036524b3d0402f587330d53584f1bf87a6"
+    },
+    {
+      "byte_count": 7086,
+      "path": "metadata/housing_equity_indicator_catalog.csv",
+      "sha256": "d3b81280c6d5b1cb5715986ae6259f35cdd2c71fc45aad17db6994530e5f2d60"
+    },
+    {
+      "byte_count": 824,
+      "path": "metadata/housing_equity_source_registry.csv",
+      "sha256": "85c2e685f7f58d6773500aa75fc1c72438b37851c028a98ddecd6c7a753545cc"
+    },
+    {
+      "byte_count": 1308,
+      "path": "docs/housing-equity/README.md",
+      "sha256": "628e9e640f4d7a7fd05d97670bcc8d8a3ad5a33faef28ae72f8ecc8621dc5adb"
+    },
+    {
+      "byte_count": 4164,
+      "path": "docs/housing-equity/METHODOLOGY.md",
+      "sha256": "73e098541bfcee679048b400d809162a0a85b1a1f07264b144b25183ef703877"
+    },
+    {
+      "byte_count": 1983,
+      "path": "docs/housing-equity/DATA_DICTIONARY.md",
+      "sha256": "d03da690209a2785d7c172f1e04db33884cde4e1c8968c6740c098aa9e5a10ec"
+    },
+    {
+      "byte_count": 1703,
+      "path": "docs/housing-equity/LIMITATIONS.md",
+      "sha256": "6be677f3b7553851caef6042e03abe596657bf5b420567b985514f9636c433ad"
+    },
+    {
+      "byte_count": 1520,
+      "path": "docs/housing-equity/RUNBOOK.md",
+      "sha256": "59d1768e6038e7a64efbad3dd7b264e8b99c6747feb55cdb7bb1293556f57a68"
+    },
+    {
+      "byte_count": 92674,
+      "path": "src/bay_outlook/phase14_equity.py",
+      "sha256": "80c1e6fef6b5c6cb2b261a0d38d98feafeeb5400aad0a14ce6a83277d99e09e7"
+    },
+    {
+      "byte_count": 8489,
+      "path": "tests/test_phase14_equity.py",
+      "sha256": "01e73c4b53386f737c202c6f0c85cd6e58edce5d15b559b481d5414714ee48dd"
+    },
+    {
+      "byte_count": 3035,
+      "path": ".github/workflows/phase14-v1-4-audit.yml",
+      "sha256": "f78106f61210271532a8dd3877f51b18d29bf3f1d2e04393684e3ea917ceaf8a"
+    },
+    {
+      "byte_count": 1366,
+      "path": ".github/workflows/housing-equity-update.yml",
+      "sha256": "773b8ec867a3778ab1e2c11b136a8a494fe0399e21c0006238ec6147b7dbee59"
+    },
+    {
+      "byte_count": 3074186,
+      "path": "data/phase14/equity/exports/equity_observations.csv",
+      "sha256": "7f470ff511403f1f38a9ef431a10d8f42210e50655c19002664626a8ff84df6d"
+    },
+    {
+      "byte_count": 1162126,
+      "path": "data/phase14/equity/exports/equity_snapshot.csv",
+      "sha256": "ed62eb9038ed16e123d22eb0d9f7889ee4279e9d0007210b049fde7d2aa6345f"
+    },
+    {
+      "byte_count": 470752,
+      "path": "data/phase14/equity/exports/race_housing.csv",
+      "sha256": "e9c40cad3b8af3dc081e87419a0cc180ae054d65a538424148e701699e92ac52"
+    },
+    {
+      "byte_count": 507882,
+      "path": "data/phase14/equity/exports/education_occupation_affordability.csv",
+      "sha256": "ed3dc9255b480b4ec247f38bd2a79ba2bd5c71a521cad4ae0547380a521b26b5"
+    },
+    {
+      "byte_count": 113083,
+      "path": "data/phase14/equity/exports/commuting_connections.csv",
+      "sha256": "30c68bb7ea9ec7b517e672028a812e97e1989927cb5a8343384c2469e4ad3ee1"
+    },
+    {
+      "byte_count": 13761,
+      "path": "data/phase14/equity/exports/source_freshness.csv",
+      "sha256": "a6a439ec3e01bd8f4866b362a6b181e5ead8c9e31e8a30650888343a09abaf1d"
+    },
+    {
+      "byte_count": 30881,
+      "path": "data/phase14/equity/exports/source_snapshots.csv",
+      "sha256": "fb9ad1e53a7fa715973d3ea879d45b78481eb53d53c5299d36547f39f3429cef"
+    },
+    {
+      "byte_count": 1596,
+      "path": "data/phase14/equity/exports/quality_checks.csv",
+      "sha256": "043321fd2dbb54bf48e5c344a075b6e108fd24afd1c751e6f27cc70912920775"
+    },
+    {
+      "byte_count": 5614465,
+      "path": "data/phase14/equity/public/housing-equity-connections-data.json",
+      "sha256": "f430f52a18feb9959a99da573c6e0f3b2e40577378662ed6eb0d2a5b3c445d53"
+    }
+  ],
+  "inherits": "Housing Production & Policy 1.3.0",
+  "metric_count": 30,
+  "observation_count": 3780,
+  "product": "Housing Equity & Economic Connections",
+  "publication": {
+    "automatic_narrative": false,
+    "github_status": "candidate_pending_merge",
+    "phase10_report_status": "human_approval_hold",
+    "site_status": "candidate_pending_external_verification"
+  },
+  "quality_check_count": 14,
+  "quality_check_failures": 0,
+  "source_count": 3,
+  "source_snapshot_count": 76,
+  "version": "1.4.0"
+}

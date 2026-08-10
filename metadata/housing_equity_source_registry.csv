@@ -1,0 +1,4 @@
+source_id,publisher,dataset,source_tier,source_class,frequency,geography_basis,landing_url
+CENSUS_ACS5_DETAIL,U.S. Census Bureau,American Community Survey 5-Year Detailed Tables,1,government survey estimate,annual rolling five-year estimate,household or person residence,https://www.census.gov/programs-surveys/acs/data.html
+CENSUS_LEHD_LODES,U.S. Census Bureau,"LEHD Origin-Destination Employment Statistics, LODES8",1,government administrative job estimate with disclosure protection,annual,"workplace and residence census block, aggregated to county",https://lehd.ces.census.gov/data/#lodes
+HUD_FMR,U.S. Department of Housing and Urban Development,"FY 2026 Fair Market Rents, Revised",1,government modeled rent standard,federal fiscal year,HUD FMR area assigned to county,https://www.huduser.gov/portal/datasets/fmr.html
