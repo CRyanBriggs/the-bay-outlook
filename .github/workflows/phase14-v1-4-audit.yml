@@ -1,101 +1,66 @@
-name: Phase 14 v1.4 source audit
+name: Phase 14 v1.4 candidate build
 
 on:
-  push:
-    branches:
-      - phase14-v1-4-equity
   pull_request:
     branches:
       - main
+    paths:
+      - "config/phase14_housing_equity.json"
+      - "src/bay_outlook/phase14_equity.py"
+      - "src/bay_outlook/cli.py"
+      - "tests/test_phase14_equity.py"
+      - "pyproject.toml"
+      - ".github/workflows/phase14-v1-4-audit.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit-official-sources:
+  build-verify-and-stage:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Audit ACS and LODES contracts
-        shell: bash
+      - name: Install project
+        run: python -m pip install -e .
+      - name: Build official evidence candidate
         run: |
-          python - <<'PY'
-          from __future__ import annotations
-          import gzip
-          import hashlib
-          import json
-          import pathlib
-          import urllib.request
-
-          output = pathlib.Path("candidate-audit")
-          output.mkdir(exist_ok=True)
-          groups = [
-              "B25003A","B25003B","B25003C","B25003D","B25003E",
-              "B25003F","B25003G","B25003H","B25003I",
-              "B25140A","B25140B","B25140C","B25140D","B25140E",
-              "B25140F","B25140G","B25140H","B25140I",
-              "B25007","B25013","B25115","B20004","B24011","B08303","B08006","B25044",
-          ]
-          all_groups = {}
-          for group in groups:
-              url = f"https://api.census.gov/data/2024/acs/acs5/groups/{group}.json"
-              with urllib.request.urlopen(url, timeout=90) as response:
-                  raw = response.read()
-              payload = json.loads(raw)
-              variables = {}
-              for name, meta in sorted(payload["variables"].items()):
-                  if name.endswith(("E","M","EA","MA")):
-                      variables[name] = {
-                          "label": meta.get("label"),
-                          "concept": meta.get("concept"),
-                          "predicateType": meta.get("predicateType"),
-                          "group": meta.get("group"),
-                      }
-              all_groups[group] = {
-                  "source_url": url,
-                  "sha256": hashlib.sha256(raw).hexdigest(),
-                  "variables": variables,
-              }
-              print(f"ACS_GROUP {group} {len(variables)}")
-              if group in {"B25003A","B25140A","B25007","B25013","B25115","B20004","B24011","B08303","B08006","B25044"}:
-                  for variable_name, variable_meta in variables.items():
-                      if variable_name.endswith("E"):
-                          print(f"ACS_VAR {variable_name} | {variable_meta['label']}")
-          (output / "acs_groups.json").write_text(
-              json.dumps(all_groups, indent=2, sort_keys=True), encoding="utf-8"
-          )
-
-          lodes_urls = [
-              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/ca_xwalk.csv.gz",
-              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/od/ca_od_main_JT00_2023.csv.gz",
-              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/od/ca_od_aux_JT00_2023.csv.gz",
-          ]
-          lodes = []
-          for url in lodes_urls:
-              request = urllib.request.Request(url, headers={"User-Agent":"The Bay Outlook source audit"})
-              with urllib.request.urlopen(request, timeout=180) as response:
-                  raw = response.read()
-              decompressed = gzip.decompress(raw)
-              lines = decompressed.splitlines()
-              record = {
-                  "source_url": url,
-                  "byte_count": len(raw),
-                  "sha256": hashlib.sha256(raw).hexdigest(),
-                  "header": lines[0].decode("utf-8"),
-                  "row_count": len(lines) - 1,
-              }
-              lodes.append(record)
-              print("LODES", pathlib.PurePosixPath(url).name, record["byte_count"], record["row_count"], record["header"])
-          (output / "lodes_audit.json").write_text(
-              json.dumps(lodes, indent=2, sort_keys=True), encoding="utf-8"
-          )
-          PY
+          BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          PYTHONPATH=src python -m bay_outlook.cli build-phase14-equity --built-at "$BUILT_AT"
+      - name: Run complete repository suite
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Re-run Version 1.4 verifier
+        run: PYTHONPATH=src python -m bay_outlook.cli verify-phase14-equity
+      - name: Commit verified public artifacts to the PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/phase14/equity/exports
+          git add data/phase14/equity/public
+          git add data/phase14/equity/phase14_v1_4_manifest.json
+          git add metadata/housing_equity_indicator_catalog.csv
+          git add metadata/housing_equity_source_registry.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Build verified Phase 14 v1.4 evidence"
+            git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          fi
+      - name: Prepare named-human review packet
+        run: |
+          mkdir -p candidate-review
+          cp data/phase14/equity/exports/quality_checks.csv candidate-review/
+          cp data/phase14/equity/exports/source_freshness.csv candidate-review/
+          cp data/phase14/equity/exports/source_snapshots.csv candidate-review/
+          cp data/phase14/equity/phase14_v1_4_manifest.json candidate-review/
+          printf '%s\n' 'No Site deployment or narrative publication is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: phase14-v1-4-source-audit
-          path: candidate-audit
+          name: housing-equity-v1-4-candidate-review
+          path: candidate-review
           if-no-files-found: error

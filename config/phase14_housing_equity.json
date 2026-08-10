@@ -13,8 +13,20 @@
     "transportation_and_housing"
   ],
   "source_vintages": {
-    "acs_five_year": [2022, 2023, 2024],
-    "lodes": [2021, 2022, 2023],
+    "acs_tenure_demographic_earnings_commute": [
+      2022,
+      2023,
+      2024
+    ],
+    "acs_race_housing_cost_burden": [
+      2023,
+      2024
+    ],
+    "lodes8_primary_job_od": [
+      2021,
+      2022,
+      2023
+    ],
     "hud_fmr": "FY2026 inherited from verified Version 1.2"
   },
   "method": {
@@ -30,10 +42,17 @@
     "automated_narrative": false
   },
   "commuting_boundary": {
+    "lodes_job_type": "JT01 primary jobs",
     "lodes_is_job_based": true,
     "acs_is_person_or_household_based": true,
     "residence_and_workplace_geographies_kept_separate": true,
-    "out_of_state_flow_limits_disclosed": true
+    "out_of_state_inbound_flows_included": true,
+    "job_records_not_treated_as_people": true
+  },
+  "refresh": {
+    "candidate_schedule": "monthly",
+    "automatic_public_deployment": false,
+    "human_review_required": true
   },
   "publication": {
     "descriptive_data_allowed_after_verification": true,
