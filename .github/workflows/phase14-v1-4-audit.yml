@@ -1,0 +1,97 @@
+name: Phase 14 v1.4 source audit
+
+on:
+  push:
+    branches:
+      - phase14-v1-4-equity
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  audit-official-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit ACS and LODES contracts
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import gzip
+          import hashlib
+          import json
+          import pathlib
+          import urllib.request
+
+          output = pathlib.Path("candidate-audit")
+          output.mkdir(exist_ok=True)
+          groups = [
+              "B25003A","B25003B","B25003C","B25003D","B25003E",
+              "B25003F","B25003G","B25003H","B25003I",
+              "B25106A","B25106B","B25106C","B25106D","B25106E",
+              "B25106F","B25106G","B25106H","B25106I",
+              "B25007","B25115","B20004","B24011","B08303","B08201",
+          ]
+          all_groups = {}
+          for group in groups:
+              url = f"https://api.census.gov/data/2024/acs/acs5/groups/{group}.json"
+              with urllib.request.urlopen(url, timeout=90) as response:
+                  raw = response.read()
+              payload = json.loads(raw)
+              variables = {}
+              for name, meta in sorted(payload["variables"].items()):
+                  if name.endswith(("E","M","EA","MA")):
+                      variables[name] = {
+                          "label": meta.get("label"),
+                          "concept": meta.get("concept"),
+                          "predicateType": meta.get("predicateType"),
+                          "group": meta.get("group"),
+                      }
+              all_groups[group] = {
+                  "source_url": url,
+                  "sha256": hashlib.sha256(raw).hexdigest(),
+                  "variables": variables,
+              }
+              print(f"ACS_GROUP {group} {len(variables)}")
+          (output / "acs_groups.json").write_text(
+              json.dumps(all_groups, indent=2, sort_keys=True), encoding="utf-8"
+          )
+
+          lodes_urls = [
+              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/ca_xwalk.csv.gz",
+              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/od/ca_od_main_JT00_2023.csv.gz",
+              "https://lehd.ces.census.gov/data/lodes/LODES8/ca/od/ca_od_aux_JT00_2023.csv.gz",
+          ]
+          lodes = []
+          for url in lodes_urls:
+              request = urllib.request.Request(url, headers={"User-Agent":"The Bay Outlook source audit"})
+              with urllib.request.urlopen(request, timeout=180) as response:
+                  raw = response.read()
+              decompressed = gzip.decompress(raw)
+              lines = decompressed.splitlines()
+              record = {
+                  "source_url": url,
+                  "byte_count": len(raw),
+                  "sha256": hashlib.sha256(raw).hexdigest(),
+                  "header": lines[0].decode("utf-8"),
+                  "row_count": len(lines) - 1,
+              }
+              lodes.append(record)
+              print("LODES", pathlib.PurePosixPath(url).name, record["byte_count"], record["row_count"], record["header"])
+          (output / "lodes_audit.json").write_text(
+              json.dumps(lodes, indent=2, sort_keys=True), encoding="utf-8"
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phase14-v1-4-source-audit
+          path: candidate-audit
+          if-no-files-found: error
