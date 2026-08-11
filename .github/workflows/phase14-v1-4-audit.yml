@@ -26,6 +26,8 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
+      - name: Restore inherited workflow before verification
+        run: git checkout origin/main -- .github/workflows/phase14-v1-4-audit.yml
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
