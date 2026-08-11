@@ -1,0 +1,15 @@
+check_id,passed,observed,expected,detail
+nine_county_coverage,1,9,9,Every public observation must resolve to a Bay Area county.
+required_domain_coverage,1,7,7,All seven Version 1.4 connection domains are required.
+observation_grain_unique,1,0,0,No duplicate county-period-subgroup-tenure-sex metric rows.
+acs_moe_preserved,1,3448,3448,All nonmissing ACS and ACS-derived estimates retain a 90% margin of error.
+subgroup_denominators_positive,1,2368,2368,Published subgroup rates expose a positive denominator.
+race_category_coverage,1,243,243,Nine documented race/Hispanic-origin table iterations are retained without add-up logic.
+cost_burden_table_history,1,"2023,2024","2023,2024",B25140A-I begins with the 2023 table introduction.
+lodes_county_year_coverage,1,27,27,Each LODES primary-job vintage covers all nine workplace counties.
+lodes_flow_identity,1,0,0,"Workplace primary jobs reconcile to same-county, other-California, and outside-California homes."
+lodes_component_identity,1,0,0,LODES age and earnings components each reconcile to S000.
+fmr_benchmark_recomputes,1,0,0,Every education and occupation benchmark recomputes from ACS earnings and FY2026 2BR FMR.
+source_snapshot_integrity,1,0,0,"Every accepted official release has a SHA-256, byte count, and row count."
+interpretation_boundaries,1,all prohibited outputs false,all prohibited outputs false,"No score, ranking, causal claim, additive race total, or automated narrative is produced."
+reliability_flags_present,1,3780,3780,Every observation carries either a project uncertainty flag or the LODES disclosure-protection flag.

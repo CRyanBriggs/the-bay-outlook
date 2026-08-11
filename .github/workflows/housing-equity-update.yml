@@ -1,0 +1,39 @@
+name: Housing Equity candidate refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 16 10 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  human-review-required:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project
+        run: python -m pip install -e .
+      - name: Build candidate evidence
+        run: PYTHONPATH=src python -m bay_outlook.cli build-phase14-equity
+      - name: Verify candidate structure and full regression suite
+        run: |
+          PYTHONPATH=src python -m bay_outlook.cli verify-phase14-equity
+          PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Record review boundary
+        run: |
+          mkdir -p candidate-review
+          cp data/phase14/equity/exports/quality_checks.csv candidate-review/
+          cp data/phase14/equity/exports/source_freshness.csv candidate-review/
+          cp data/phase14/equity/exports/source_snapshots.csv candidate-review/
+          printf '%s\n' 'No public deployment is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: housing-equity-candidate-review
+          path: candidate-review
+          if-no-files-found: error

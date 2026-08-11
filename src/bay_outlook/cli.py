@@ -13,6 +13,7 @@ from .pipeline import persist
 from .phase14 import build_phase14, verify_phase14
 from .phase14_access import build_phase14_access, verify_phase14_access
 from .phase14_production import build_phase14_production, verify_phase14_production
+from .phase14_equity import build_phase14_equity, verify_phase14_equity
 from .sources import acs, bea, cde, laus, qcew
 from .storage import save_snapshot
 
@@ -180,6 +181,18 @@ def command_verify_phase14_production(args: argparse.Namespace) -> int:
     return 0 if report["complete"] else 1
 
 
+def command_build_phase14_equity(args: argparse.Namespace) -> int:
+    report = build_phase14_equity(built_at=args.built_at, refresh=not args.offline)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["verification"]["complete"] else 1
+
+
+def command_verify_phase14_equity(args: argparse.Namespace) -> int:
+    report = verify_phase14_equity(manifest_path=Path(args.manifest))
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["complete"] else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="bay-outlook-public")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -250,6 +263,28 @@ def build_parser() -> argparse.ArgumentParser:
         default="data/phase14/production/phase14_v1_3_manifest.json",
     )
     verify_production.set_defaults(func=command_verify_phase14_production)
+
+    equity = subparsers.add_parser(
+        "build-phase14-equity",
+        help="Build Version 1.4 Housing Equity & Economic Connections",
+    )
+    equity.add_argument("--built-at", help="Optional deterministic UTC retrieval/build time")
+    equity.add_argument(
+        "--offline",
+        action="store_true",
+        help="Verify the published Version 1.4 evidence package without retrieving sources",
+    )
+    equity.set_defaults(func=command_build_phase14_equity)
+
+    verify_equity = subparsers.add_parser(
+        "verify-phase14-equity",
+        help="Verify Version 1.4 scope, uncertainty, calculations, lineage, and boundaries",
+    )
+    verify_equity.add_argument(
+        "--manifest",
+        default="data/phase14/equity/phase14_v1_4_manifest.json",
+    )
+    verify_equity.set_defaults(func=command_verify_phase14_equity)
     return parser
 
 
