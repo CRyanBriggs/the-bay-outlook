@@ -1,0 +1,17 @@
+check_id,passed,observed,expected,detail
+four_verified_modules,1,4,4,Versions 1.1 through 1.4 are present.
+nine_county_coverage,1,9,9,All public rows resolve to the nine-county Bay Area.
+cumulative_observation_count,1,10224,10224,No inherited observation is dropped or invented.
+cumulative_metric_count,1,139,139,Every inherited measure has a namespaced definition.
+cumulative_snapshot_count,1,181,181,Snapshot counts are inherited without deduplicating distinct release records.
+observation_identity_unique,1,0,0,The public-use grain is unique.
+source_linkage_complete,1,0,0,Every observation retains one or more source identifiers.
+derived_formulas_exposed,1,0,0,Every derived measure exposes its formula or exact method.
+source_urls_valid,1,0,0,Every source drill-down uses an official or documented HTTPS landing page.
+profile_coverage,1,135,135,Every curated profile measure covers every county at one common period.
+comparison_coverage,1,108,108,Every comparison uses one common period and alphabetical county order.
+comparison_order_not_ranked,1,alphabetical,alphabetical,County rows are never sorted by indicator value.
+v1_4_uncertainty_preserved,1,3448,3448,All applicable ACS rows retain 90% margins of error.
+v1_4_boundaries_preserved,1,all prohibited outputs false,all prohibited outputs false,"No equity score, county ranking, or causal inference is introduced."
+phase10_hold_preserved,1,human_approval_hold,human_approval_hold,The held narrative report is not published.
+automatic_narrative_disabled,1,False,False,"The public-use layer contains descriptive interfaces, not automated conclusions."

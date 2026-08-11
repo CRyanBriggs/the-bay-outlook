@@ -1,15 +1,14 @@
-name: Phase 14 v1.5 approved publication build
+name: Phase 14 v1.4 candidate build
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - "config/phase14_housing_public_use.json"
-      - "data/phase14/public_use/inherited/**"
-      - "src/bay_outlook/phase14_public_use.py"
+      - "config/phase14_housing_equity.json"
+      - "src/bay_outlook/phase14_equity.py"
       - "src/bay_outlook/cli.py"
-      - "tests/test_phase14_public_use.py"
+      - "tests/test_phase14_equity.py"
       - "pyproject.toml"
       - ".github/workflows/phase14-v1-4-audit.yml"
 
@@ -20,54 +19,51 @@ jobs:
   build-verify-and-stage:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - name: Restore inherited workflow before verification
-        run: git checkout origin/main -- .github/workflows/phase14-v1-4-audit.yml
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install project
         run: python -m pip install -e .
-      - name: Build approved cumulative public-use release
+      - name: Build official evidence candidate
         run: |
-          PYTHONPATH=src python -m bay_outlook.cli build-phase14-public-use \
-            --built-at 2026-08-11T17:04:38Z
-      - name: Verify exact reviewed manifest
-        run: |
-          printf '%s  %s\n' \
-            '5cd28ca853395df1b9d135a025c0da7c6e7f4e33d201fbe42bc8de569b3740d7' \
-            'data/phase14/public_use/phase14_v1_5_manifest.json' | sha256sum -c -
+          export BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          PYTHONPATH=src python -c 'import json, os; from bay_outlook.phase14_equity import build_phase14_equity; print(json.dumps(build_phase14_equity(built_at=os.environ["BUILT_AT"]), indent=2))'
       - name: Run complete repository suite
         run: PYTHONPATH=src python -m unittest discover -s tests -v
-      - name: Re-run Version 1.5 verifier
-        run: PYTHONPATH=src python -m bay_outlook.cli verify-phase14-public-use
-      - name: Preserve verified review packet
+      - name: Re-run Version 1.4 verifier
+        run: PYTHONPATH=src python -m bay_outlook.cli verify-phase14-equity
+      - name: Prepare named-human review packet
         run: |
-          mkdir -p candidate-review
-          cp data/phase14/public_use/exports/quality_checks.csv candidate-review/
-          cp data/phase14/public_use/phase14_v1_5_manifest.json candidate-review/
-          printf '%s\n' 'Named-human publication approval recorded; no Site deployment or narrative publication is performed by this workflow.' > candidate-review/PUBLICATION_BOUNDARY.txt
+          mkdir -p candidate-review/data/phase14/equity
+          mkdir -p candidate-review/metadata
+          cp -R data/phase14/equity/exports candidate-review/data/phase14/equity/
+          cp -R data/phase14/equity/public candidate-review/data/phase14/equity/
+          cp data/phase14/equity/phase14_v1_4_manifest.json candidate-review/data/phase14/equity/
+          cp metadata/housing_equity_indicator_catalog.csv candidate-review/metadata/
+          cp metadata/housing_equity_source_registry.csv candidate-review/metadata/
+          printf '%s\n' 'No Site deployment or narrative publication is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: housing-public-use-v1-5-approved-release
+          name: housing-equity-v1-4-candidate-review
           path: candidate-review
           if-no-files-found: error
-      - name: Commit exact verified public artifacts to the PR branch
+      - name: Commit verified public artifacts to the PR branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout origin/main -- .github/workflows/phase14-v1-4-audit.yml
-          git add .github/workflows/phase14-v1-4-audit.yml
-          git add -f data/phase14/public_use/exports
-          git add -f data/phase14/public_use/public
-          git add -f data/phase14/public_use/phase14_v1_5_manifest.json
+          git add -f data/phase14/equity/exports
+          git add -f data/phase14/equity/public
+          git add -f data/phase14/equity/phase14_v1_4_manifest.json
+          git add -f metadata/housing_equity_indicator_catalog.csv
+          git add -f metadata/housing_equity_source_registry.csv
           git diff --cached --stat
           if ! git diff --cached --quiet; then
-            git commit -m "Build verified Phase 14 v1.5 public-use artifacts"
+            git commit -m "Build verified Phase 14 v1.4 evidence"
             git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
           fi
