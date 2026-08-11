@@ -1,0 +1,149 @@
+{
+  "built_at": "2026-08-11T17:04:38Z",
+  "county_count": 9,
+  "files": [
+    {
+      "byte_count": 1514,
+      "path": ".github/workflows/housing-public-use-update.yml",
+      "sha256": "fa475f653a4531ea5d1f77f860a50471b07bb538e5c0e799e9734635b07c4f08"
+    },
+    {
+      "byte_count": 4940,
+      "path": "README.md",
+      "sha256": "6140eff48dbe574eb82da8cf1466a046a3dda6e7ef1b9c17a39beee5e1d3d861"
+    },
+    {
+      "byte_count": 602,
+      "path": "config/phase14_housing_public_use.json",
+      "sha256": "36cb74706111347b797b7dbb2c3b2ada4ead40a2508d6ab49df548502969c0e5"
+    },
+    {
+      "byte_count": 5614466,
+      "path": "data/phase14/equity/public/housing-equity-connections-data.json",
+      "sha256": "b2a531816e1a13b7fccef4cbdb47fc63e5d1dc4532cc44356749be3404d466ff"
+    },
+    {
+      "byte_count": 933993,
+      "path": "data/phase14/production/public/housing-production-policy-data.json",
+      "sha256": "b404b3fbe30d905d821478a7b01820785288449908a2ff0766060102cfce27d6"
+    },
+    {
+      "byte_count": 28360,
+      "path": "data/phase14/public_use/exports/county_comparisons.csv",
+      "sha256": "dc28cfa81c6cb5374031571f69e33d9698e775147faf1de56f72f71fe7ed4462"
+    },
+    {
+      "byte_count": 28265,
+      "path": "data/phase14/public_use/exports/county_profiles.csv",
+      "sha256": "b1c9638bc18778e592f623f790d24447dfc227f2feef6c89197a135032ce99fa"
+    },
+    {
+      "byte_count": 57961,
+      "path": "data/phase14/public_use/exports/public_use_measure_catalog.csv",
+      "sha256": "15d5dfbf0b4c544f4701ac716374e0dff3c266ade73fff60cdf13b8d19f8785e"
+    },
+    {
+      "byte_count": 5427204,
+      "path": "data/phase14/public_use/exports/public_use_observations.csv",
+      "sha256": "2f1d4f55f03427b35485b6cd16e87fc4858583c0aa5ea8871890355cf673f5f6"
+    },
+    {
+      "byte_count": 7475,
+      "path": "data/phase14/public_use/exports/public_use_source_registry.csv",
+      "sha256": "064dc83365606c24acf882726fb91d1ece20d92ea624a49ed8cb7bab67592093"
+    },
+    {
+      "byte_count": 1611,
+      "path": "data/phase14/public_use/exports/quality_checks.csv",
+      "sha256": "1e20d0a8a29d6e4ae951d7f581a4f332be072d405a4a6c52e50693e9cae0d5d1"
+    },
+    {
+      "byte_count": 601644,
+      "path": "data/phase14/public_use/inherited/housing-access-data-v1.2.json",
+      "sha256": "007ffe902496f2f62ef322d4338440e543845f447b8167c204bb86f4260690e5"
+    },
+    {
+      "byte_count": 1405201,
+      "path": "data/phase14/public_use/inherited/housing-data-v1.1.json",
+      "sha256": "e7764e966a9e4a4d7d5037ac1cf7fe44dafc2e70e6ede8014a6ef7ba439533e5"
+    },
+    {
+      "byte_count": 11790622,
+      "path": "data/phase14/public_use/public/housing-public-use-data.json",
+      "sha256": "30184e7cca2355db991483929dba427160537a0f68cff024eb4704ac82947f02"
+    },
+    {
+      "byte_count": 262731,
+      "path": "data/phase14/public_use/public/housing-public-use-index.json",
+      "sha256": "e119fbe8e134644fa6c8055f54868bcab54fce8ba761bf8146448d94305a6572"
+    },
+    {
+      "byte_count": 993,
+      "path": "docs/housing-public-use/DATA_DICTIONARY.md",
+      "sha256": "01841375019cc04541cb0cf9493b938c64d28e522b87da2cd137220e81bb6cd2"
+    },
+    {
+      "byte_count": 1035,
+      "path": "docs/housing-public-use/LIMITATIONS.md",
+      "sha256": "f6317b14675c94a13f9bdf87e2a25c5f44a08d779ad83b174bd951dafc53536c"
+    },
+    {
+      "byte_count": 1606,
+      "path": "docs/housing-public-use/METHODOLOGY.md",
+      "sha256": "59a03144fabe59fef871d896b809cf6f969a2599a99986652d1ce65841a0a690"
+    },
+    {
+      "byte_count": 457,
+      "path": "docs/housing-public-use/README.md",
+      "sha256": "5cfb5c4c028f0b983391c8389658349539c9a6672f0d37ab4c3a17446811e939"
+    },
+    {
+      "byte_count": 819,
+      "path": "docs/housing-public-use/RUNBOOK.md",
+      "sha256": "e439dd24ecfd4b50482958c1b04733e6549ec79fa3338a6e54c52da147ed15f6"
+    },
+    {
+      "byte_count": 444,
+      "path": "pyproject.toml",
+      "sha256": "8f97d238d445ab50b27b20922c830d99f44797275a9dec681b79a14f9a16c8ae"
+    },
+    {
+      "byte_count": 12282,
+      "path": "src/bay_outlook/cli.py",
+      "sha256": "79c8cecc2ee6abcd1e6e840e4c0ec4c4431abbe1d6748eac3e45e5d2422c948f"
+    },
+    {
+      "byte_count": 39114,
+      "path": "src/bay_outlook/phase14_public_use.py",
+      "sha256": "250d9e6049c746b611dffd19d24eaf923550350adc9414f67294163fd40c4765"
+    },
+    {
+      "byte_count": 6480,
+      "path": "tests/test_phase14_public_use.py",
+      "sha256": "762ac9841381ea3f1686e42b763b7a68457d7a548e8e4d801c4df92e7513090b"
+    }
+  ],
+  "inherits": [
+    "1.1.0",
+    "1.2.0",
+    "1.3.0",
+    "1.4.0"
+  ],
+  "metric_count": 139,
+  "module_count": 4,
+  "observation_count": 10224,
+  "product": "Housing Analytical & Public-Use Layer",
+  "publication": {
+    "automatic_narrative": false,
+    "composite_score": false,
+    "county_ranking": false,
+    "github_status": "candidate_pending_merge",
+    "phase10_report_status": "human_approval_hold",
+    "site_status": "candidate_pending_external_verification"
+  },
+  "quality_check_count": 16,
+  "quality_check_failures": 0,
+  "source_registry_count": 22,
+  "source_snapshot_count": 181,
+  "version": "1.5.0"
+}

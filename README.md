@@ -4,87 +4,77 @@
 
 > An evidence-first economic and housing-intelligence project for understanding change across the nine-county San Francisco Bay Area.
 
-[**Open Version 1.3: Housing Production & Policy →**](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing/production)
+## Version 1.5 review candidate
 
-![The Bay Outlook dashboard](assets/dashboard-screenshot.jpg)
+Version 1.5 adds an analytical and public-use layer across the four verified Phase 14 housing releases. It preserves each release as a separate, namespaced module and provides county profiles, same-period comparisons, definitions, sources, and downloadable data without producing rankings, scores, causal claims, or automated narrative analysis.
 
-## Version 1.3 verified scale
-
-| Scope | Audited result |
+| Scope | Verified result |
 |---|---:|
 | Bay Area counties | 9 |
-| Production and policy domains | 7 |
-| Measures in the Version 1.3 layer | 42 |
-| Production and policy observations | 1,575 |
-| Government source systems | 6 |
-| Immutable evidence snapshots in the sealed checkpoint | 21 |
-| Deterministic timeline matches | 28,814 |
-| Housing-element records | 109 |
-| Build quality checks | 10/10 passed |
-| Full private project suite | 120/120 passed |
-| Private completion and publication gates | 21/21 passed |
+| Inherited verified modules | 4 |
+| Namespaced measures | 139 |
+| Normalized observations | 10,224 |
+| Source-registry records | 22 |
+| Inherited evidence snapshots | 181 |
+| County profile measures | 15 |
+| Same-period comparison measures | 12 |
+| Version 1.5 build checks | 16/16 passed |
+| Public repository tests | 65/65 passed, 2 expected private-artifact skips |
+| Full private project suite | 136/136 passed |
 
-Version 1.3 extends—not replaces—the verified Version 1.2 Housing Access & Displacement layer and Version 1.1 Housing Observatory.
+This branch is a publication candidate. The GitHub merge and public Site deployment remain pending explicit named-human approval. The Phase 10 baseline report remains on `human_approval_hold`.
 
-## What Version 1.3 adds
+## What Version 1.5 adds
 
-- annual 2018–2025 housing applications, decisions, entitlements, permits, completions, and accessory dwelling units;
-- exact-key application-to-stage timeline medians with eligible, matched, and interval sample counts;
-- sixth-cycle RHNA allocations compared separately with reported permits and completions;
-- current sixth-cycle housing-element compliance records and county summaries;
-- mapped zoning composition with an explicit no-capacity-estimate boundary; and
-- conditionally reported HCD rezoning acreage, capacity, and site records.
-
-Annual application, entitlement, permit, and completion counts remain separate stage flows. They are not presented as one project cohort or conversion funnel. The release does not rank counties, score policy, infer causal effects, or automate narrative analysis.
+- one long-format public-use observation table with module, county, period, subgroup, source, derivation, formula, universe, and uncertainty fields;
+- a 139-row namespaced measure catalog and a 22-row source registry;
+- 15 fixed county-profile measures selected at their latest common nine-county period;
+- 12 same-period comparison measures displayed in alphabetical county order;
+- complete CSV and JSON downloads plus a review-only SQLite build artifact;
+- explicit separation of ACS residence estimates from LODES workplace-job records; and
+- a read-only candidate workflow that cannot merge, deploy, rank counties, score policy, or publish narrative analysis.
 
 ```mermaid
 flowchart TD
-    A["Government releases"] --> B["Hashed source evidence"]
-    B --> C["County observations"]
-    C --> D["Deterministic matches and documented calculations"]
-    D --> E["Housing Production experience"]
-    E --> F["Named-human analysis review"]
+    A["v1.1 Observatory"] --> E["v1.5 public-use layer"]
+    B["v1.2 Access"] --> E
+    C["v1.3 Production"] --> E
+    D["v1.4 Equity"] --> E
+    E --> F["Profiles, comparisons, definitions, downloads"]
 ```
 
 ## Reproduce and verify
 
-The public adapter preserves complete official responses or county/year slices with upstream file digests. Multi-source observations retain an explicit observation-to-release mapping.
+The public builder reads the four inherited, versioned payloads already present in the repository. It performs no live-source retrieval and does not change inherited values.
 
 ```bash
 python -m pip install -e .
-PYTHONPATH=src python -m bay_outlook.cli build-phase14
-PYTHONPATH=src python -m bay_outlook.cli build-phase14-access
-PYTHONPATH=src python -m bay_outlook.cli build-phase14-production
-PYTHONPATH=src python -m bay_outlook.cli verify-phase14-production
+PYTHONPATH=src python -m bay_outlook.cli build-phase14-public-use
+PYTHONPATH=src python -m bay_outlook.cli verify-phase14-public-use
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-To verify the publication-safe bundle without retrieving sources, use:
-
-```bash
-PYTHONPATH=src python -m bay_outlook.cli build-phase14-production --offline
-PYTHONPATH=src python -m bay_outlook.cli verify-phase14-production
-```
-
-The scheduled workflow has read-only repository permission. It creates a review candidate and does not commit, deploy, or publish narrative analysis.
+The workflow has read-only repository permission. It uploads a candidate review artifact and never commits, merges, deploys, or publishes analysis.
 
 ## What this public bundle contains
 
-The publication-safe portfolio bundle contains the live-source adapter, configuration, source and indicator registries, methods, limitations, tests, the complete 1,575-row normalized series, selected review exports, the exact public JSON payload, and a 21-snapshot evidence register. It intentionally excludes raw source files, private checkpoint databases, internal editorial records, Site source, and the unapproved baseline-report artifact.
+The publication-safe bundle contains the integration adapter, configuration, methods, limitations, tests, complete normalized observations, county profile and comparison exports, measure and source registries, public JSON payloads, quality checks, and a file-hash manifest. It intentionally excludes raw source files, private checkpoint databases, internal editorial records, Site source, and the unapproved baseline-report artifact.
 
 ## Evidence boundaries
 
-- HCD APR records are jurisdiction-reported and can be revised.
-- Annual stage flows are not one tracked cohort; same-year completion-to-permit ratios can exceed 100 percent.
-- Timeline medians describe exact jurisdiction-plus-tracking-ID or jurisdiction-plus-APN matches, not every application.
-- Housing-element compliance is an administrative status, not proof of implementation or production.
-- RHNA progress uses a full-cycle denominator and a partial-cycle 2023–2025 numerator.
-- Mapped zoning composition is not legal development capacity, allowed density, feasibility, or unit potential.
-- Conditionally reported Table C rows are not imputed to zero.
+- “Latest” differs by source and measure; every displayed value retains its observation period.
+- County comparisons are descriptive and remain alphabetically ordered.
+- ACS five-year estimates overlap across vintages and retain available 90% margins of error.
+- LODES describes jobs and workplace flows, not unique people or household residence.
+- Redfin is a Tier 2 private primary-market source, not a government statistic.
+- HUD Fair Market Rent is a program benchmark, not a county median asking rent.
+- Court filing records are not unique displaced households or final case outcomes.
+- Annual applications, permits, entitlements, and completions are separate stage flows, not one project cohort.
+- RHNA progress uses a full-cycle allocation denominator and a partial-cycle numerator.
+- Zoning composition is not legal capacity, feasibility, policy performance, or a unit estimate.
+- Race and Hispanic-origin table iterations overlap and are not additive.
 
-The baseline economic analysis remains on `human_approval_hold`. New public narrative analysis also requires named-human editorial approval.
-
-[Housing Production & Policy](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing/production) · [Housing Access & Displacement](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing/access) · [Housing Observatory](https://the-bay-outlook.kw5f4w8d9g.chatgpt.site/housing) · [Methodology](docs/housing-production/METHODOLOGY.md) · [Data dictionary](docs/housing-production/DATA_DICTIONARY.md) · [Project case study](case-study.pdf)
+[Methodology](docs/housing-public-use/METHODOLOGY.md) · [Data dictionary](docs/housing-public-use/DATA_DICTIONARY.md) · [Limitations](docs/housing-public-use/LIMITATIONS.md) · [Review runbook](docs/housing-public-use/RUNBOOK.md) · [Project case study](case-study.pdf)
 
 ## Role and development approach
 

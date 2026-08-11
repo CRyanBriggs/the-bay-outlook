@@ -14,6 +14,7 @@ from .phase14 import build_phase14, verify_phase14
 from .phase14_access import build_phase14_access, verify_phase14_access
 from .phase14_production import build_phase14_production, verify_phase14_production
 from .phase14_equity import build_phase14_equity, verify_phase14_equity
+from .phase14_public_use import build_phase14_public_use, verify_phase14_public_use
 from .sources import acs, bea, cde, laus, qcew
 from .storage import save_snapshot
 
@@ -193,6 +194,18 @@ def command_verify_phase14_equity(args: argparse.Namespace) -> int:
     return 0 if report["complete"] else 1
 
 
+def command_build_phase14_public_use(args: argparse.Namespace) -> int:
+    report = build_phase14_public_use(built_at=args.built_at)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["verification"]["complete"] else 1
+
+
+def command_verify_phase14_public_use(args: argparse.Namespace) -> int:
+    report = verify_phase14_public_use(manifest_path=Path(args.manifest))
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["complete"] else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="bay-outlook-public")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -285,6 +298,23 @@ def build_parser() -> argparse.ArgumentParser:
         default="data/phase14/equity/phase14_v1_4_manifest.json",
     )
     verify_equity.set_defaults(func=command_verify_phase14_equity)
+
+    public_use = subparsers.add_parser(
+        "build-phase14-public-use",
+        help="Build Version 1.5 Analytical & Public-Use Layer from verified housing releases",
+    )
+    public_use.add_argument("--built-at", help="Optional deterministic UTC build time")
+    public_use.set_defaults(func=command_build_phase14_public_use)
+
+    verify_public_use = subparsers.add_parser(
+        "verify-phase14-public-use",
+        help="Verify Version 1.5 cumulative counts, comparisons, downloads, hashes, and boundaries",
+    )
+    verify_public_use.add_argument(
+        "--manifest",
+        default="data/phase14/public_use/phase14_v1_5_manifest.json",
+    )
+    verify_public_use.set_defaults(func=command_verify_phase14_public_use)
     return parser
 
 

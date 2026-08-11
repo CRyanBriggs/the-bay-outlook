@@ -1,0 +1,41 @@
+name: Housing public-use update
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project
+        run: python -m pip install -e .
+      - name: Build cumulative public-use candidate
+        run: PYTHONPATH=src python -m bay_outlook.cli build-phase14-public-use
+      - name: Verify candidate structure and full regression suite
+        run: |
+          PYTHONPATH=src python -m bay_outlook.cli verify-phase14-public-use
+          PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Record review boundary
+        run: |
+          mkdir -p candidate-review
+          cp data/phase14/public_use/exports/quality_checks.csv candidate-review/
+          cp data/phase14/public_use/phase14_v1_5_manifest.json candidate-review/
+          printf '%s\n' 'No public deployment, merge, ranking, score, or narrative analysis is performed by this workflow.' > candidate-review/REVIEW_REQUIRED.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: housing-public-use-v1-5-candidate
+          path: |
+            data/phase14/public_use/exports/
+            data/phase14/public_use/public/
+            data/phase14/public_use/phase14_v1_5_manifest.json
+            docs/housing-public-use/
+            candidate-review/
+          if-no-files-found: error

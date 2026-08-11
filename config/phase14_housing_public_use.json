@@ -1,0 +1,21 @@
+{
+  "version": "1.5.0",
+  "product": "Housing Analytical & Public-Use Layer",
+  "inherits": ["1.1.0", "1.2.0", "1.3.0", "1.4.0"],
+  "geography": "nine-county San Francisco Bay Area",
+  "features": [
+    "county profiles",
+    "same-period cross-county comparisons",
+    "downloadable normalized data",
+    "measure definitions",
+    "source drill-downs",
+    "transparent derived-indicator labels"
+  ],
+  "boundaries": {
+    "automatic_narrative": false,
+    "causal_inference": false,
+    "composite_score": false,
+    "county_ranking": false,
+    "phase10_report_status": "human_approval_hold"
+  }
+}
